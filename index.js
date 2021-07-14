@@ -5,6 +5,7 @@ const PORT = 5000
 
 const app = express()
 
+app.use(express.static('client'))
 app.use(morgan('dev'))
 app.use(cors())
 
