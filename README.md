@@ -2,7 +2,7 @@
 ### Step 1
     npm install
 ### Step 2
-    create a '.env' file and paste this providing your db password:
+    create a '.env' file at the root of your folder and paste this providing your db password:
 
     PG_USER=postgres
     PG_PASSWORD=<postgres_password>
