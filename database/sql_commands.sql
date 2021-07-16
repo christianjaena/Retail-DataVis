@@ -15,6 +15,7 @@ COPY "RetailData" FROM 'C:\OnlineRetail.csv' DELIMITER ',' CSV HEADER;
 
 CREATE TYPE "userRole" AS ENUM('SuperAdmin', 'InventoryManager', 'Finance', 'Customer');
 CREATE TABLE "Users"(
+    "UserID" SERIAL PRIMARY KEY,
     "Email" VARCHAR(50),
     "Password" VARCHAR(50),
     "Role" "userRole"
