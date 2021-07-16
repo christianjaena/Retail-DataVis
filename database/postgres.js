@@ -9,6 +9,6 @@ const config = {
     port: process.env.PG_PORT 
 }
 
-const pool = new Pool(config)
+const postgres = new Pool(config)
 
-module.exports = pool;
+module.exports = postgres;
