@@ -34,6 +34,12 @@ Enter this command:
         
     COPY "RetailData" FROM 'C:\OnlineRetail.csv' DELIMITER ',' CSV HEADER;
 
+    CREATE TYPE "userRole" AS ENUM('SuperAdmin', 'InventoryManager', 'Finance', 'Customer');
+    CREATE TABLE "Users"(
+        "Email" VARCHAR(50),
+        "Password" VARCHAR(50),
+        "Role" "userRole"
+    );
 
     psql command reference:
         \l                    - show all databases
