@@ -1,0 +1,12 @@
+#513e5c	-nav bar
+
+#f6f6f6 -main bg
+
+#c4c4c4 -main gray
+
+#e5e5e5 -text main
+
+#c7aabc -misc
+
+
+
