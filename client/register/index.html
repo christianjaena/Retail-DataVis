@@ -4,25 +4,74 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Register</title>
+    <title>Registration</title>
     <link rel="stylesheet" href="register_styles.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.12.1/css/all.css"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/821113cfbe.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
-    <h1>Register</h1>
-    <select name="role" id="role">
-      <option value="Customer">Customer</option>
-      <option value="InventoryManager">Inventory Manager</option>
-      <option value="Finance">Finance</option>
-      <option value="SuperAdmin">Super Admin</option>
-    </select>
-    <input
-      id="email"
-      type="email"
-      placeholder="email"
-    />
-    <input id="password" type="password" placeholder="password" />
-    <button id="register">Sign Up</button>
-    <a href="/">Sign In</a>
+    <section class="full-screen">
+      <div class="hero">
+        <div class="container-right">
+          <form action="#">
+            <img
+              class="logo"
+              src="/assets/images/sphere.png"
+              alt="business-logo"
+            />
+            <br />
+            <h1>Register</h1>
+            <br />
+            <span>Enter your account:</span>
+            <div class="input-holder">
+              <input id="email" type="email" placeholder="Email" />
+              <input id="password" type="password" placeholder="Password" />
+            </div>
+            <select class="dropdown" id="role" name="role">
+              <option value="" disabled selected>Select position</option>
+              <option value="Customer">Customer</option>
+              <option value="SuperAdmin">Super Admin</option>
+              <option value="Finance">Finance</option>
+              <option value="InventoryManager">Inventory Manager</option>
+            </select>
+            <br />
+            <button id="register" class="login">Sign Up</button>
+          </form>
+        </div>
+
+        <div class="container-left">
+          <br />
+          <h1 class="bottom">Online Retail Business</h1>
+          <br />
+          <p class="description">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit.<br />
+            Tenetur, nihil alias optio corrupti animi suscipit? <br />
+            Est nesciunt similique assumenda labore voluptatum omnis <br />
+            ullam consectetur, non pariatur inventore explicabo, <br />
+            voluptates repudiandae.
+          </p>
+          <div class="button">
+            <button id="login" class="learn">Log In</button>
+          </div>
+          <img
+            class="revenue-file"
+            src="/assets/images/authentication.svg"
+            alt="search-file"
+          />
+        </div>
+      </div>
+    </section>
     <script src="register_script.js"></script>
   </body>
 </html>

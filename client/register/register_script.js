@@ -2,9 +2,14 @@ let role = document.getElementById('role');
 let email = document.getElementById('email');
 let password = document.getElementById('password');
 let registerButton = document.getElementById('register');
+let loginButton = document.getElementById('login');
+
+loginButton.addEventListener('click', () => {
+  window.location.href = 'http://localhost:5000/';
+});
 
 registerButton.addEventListener('click', async () => {
-  if (validateInput(email.value, password.value)) {
+  if (validateInput(email.value, password.value, role.value)) {
     let data = {
       email: email.value,
       password: password.value,
@@ -32,7 +37,7 @@ registerButton.addEventListener('click', async () => {
 function validateInput(email, password) {
   const emailRegex = /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i;
   const isValidEmail = email.search(emailRegex);
-  if (isValidEmail === -1 || email === '' || password === '') {
+  if (isValidEmail === -1 || email === '' || password === '' || role === '') {
     return false;
   } else {
     return true;

@@ -2,6 +2,11 @@ let role = document.getElementById('role');
 let email = document.getElementById('email');
 let password = document.getElementById('password');
 let loginButton = document.getElementById('login');
+let signupButton = document.getElementById('signup');
+
+signupButton.addEventListener('click', () => {
+  window.location.href = 'http://localhost:5000/register';
+});
 
 loginButton.addEventListener('click', async () => {
   let data = {
