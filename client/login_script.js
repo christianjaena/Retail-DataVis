@@ -8,7 +8,8 @@ signupButton.addEventListener('click', () => {
   window.location.href = 'http://localhost:5000/register';
 });
 
-loginButton.addEventListener('click', async () => {
+loginButton.addEventListener('click', async (e) => {
+  e.preventDefault();
   if (validateInput(email.value, password.value, role.value)) {
     let data = {
       email: email.value,
