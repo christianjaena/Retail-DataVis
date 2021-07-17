@@ -26,6 +26,7 @@ loginButton.addEventListener('click', async (e) => {
     });
 
     let result = await response.json();
+    localStorage.setItem('user', JSON.stringify(result));
     if (result !== 'No such user found') {
       switch (result.Role) {
         case 'SuperAdmin':

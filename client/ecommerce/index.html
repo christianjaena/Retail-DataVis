@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="ecommerce_styles.css" />
     <script src="https://code.iconify.design/1/1.0.6/iconify.min.js"></script>
   </head>
-  <body>
+  <body onload="checkUser()">
     <nav class="navbar">
       <ul class="navbar-nav">
         <li class="logo">
@@ -51,7 +51,7 @@
           </a>
         </li>
 
-        <li class="nav-item">
+        <li id="user" class="nav-item">
           <a href="#" class="nav-link">
             <span
               class="iconify"
@@ -114,11 +114,7 @@
           </button>
         </div>
       </div>
-      <div id="shop-cart">
-        <ul id="items">
-
-        </ul>
-      </div>
+      <div id="content"></div>
     </main>
     <script src="ecommerce_script.js"></script>
   </body>
