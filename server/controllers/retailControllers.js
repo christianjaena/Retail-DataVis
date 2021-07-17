@@ -1,4 +1,4 @@
-const postgres = require("../../database/postgres");
+const postgres = require('../../database/postgres');
 
 const get_retailData = async (req, res) => {
   try {
@@ -12,4 +12,16 @@ const get_retailData = async (req, res) => {
   }
 };
 
-module.exports = { get_retailData };
+const get_items = async (req, res) => {
+  try {
+    const items = await postgres.query(
+      'SELECT "Description", "UnitPrice" FROM "RetailData" LIMIT 50'
+    );
+    res.status(200).json(items.rows);
+  } catch (err) {
+    res.status(400).json(err.message);
+    console.log(err.message);
+  }
+};
+
+module.exports = { get_retailData, get_items };
