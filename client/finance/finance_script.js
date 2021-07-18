@@ -1,6 +1,12 @@
 let sidebar = document.querySelector('.sidebar');
 let closeBtn = document.querySelector('#btn');
 let searchBtn = document.querySelector('.bx-search');
+let logoutButton = document.getElementById('logout');
+
+logoutButton.addEventListener('click', () => {
+  window.location.href = 'http://localhost:5000/';
+  localStorage.removeItem('user');
+});
 
 closeBtn.addEventListener('click', () => {
   sidebar.classList.toggle('open');

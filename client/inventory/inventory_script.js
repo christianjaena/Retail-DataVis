@@ -1,3 +1,9 @@
+let logoutButton = document.getElementById('logout');
+
+logoutButton.addEventListener('click', () => {
+  window.location.href = 'http://localhost:5000/';
+  localStorage.removeItem('user');
+});
 function checkUser() {
   if (
     !localStorage.getItem('user') ||

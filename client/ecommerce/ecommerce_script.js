@@ -1,8 +1,8 @@
-let logoutButton = document.getElementById('logout');
 let shopButton = document.getElementById('shop');
 let shopCartDiv = document.getElementById('shop-cart');
 let userDiv = document.getElementById('user');
 let content = document.getElementById('content');
+let logoutButton = document.getElementById('logout');
 
 logoutButton.addEventListener('click', () => {
   window.location.href = 'http://localhost:5000/';
