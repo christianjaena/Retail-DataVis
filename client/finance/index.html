@@ -6,7 +6,7 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
    </head>
-<body>
+<body onload="checkUser()">
   <div class="sidebar">
     <div class="logo-details">
       <img class="bx bxl-c-plus-plus icon"  src="/assets/images/sphere no brand.png" alt="logo">
@@ -15,19 +15,14 @@
     </div>
     <ul class="nav-list">
       <li>
-          <i class='bx bx-search' ></i>
-         <input type="text" placeholder="Search...">
-         <span class="tooltip">Search</span>
-      </li>
-      <li>
-        <a href="#">
+        <a href="http://localhost:5000/dashboard">
           <i class='bx bx-grid-alt'></i>
           <span class="links_name">Dashboard</span>
         </a>
          <span class="tooltip">Dashboard</span>
       </li>
       <li>
-       <a href="#">
+       <a href="http://localhost:5000/user">
          <i class='bx bx-user' ></i>
          <span class="links_name">User</span>
        </a>
@@ -42,10 +37,11 @@
       </li>
      <li>
         <a href="#">
+        <a href="http://localhost:5000/inventory">
           <i class='bx bx-pie-chart-alt-2' ></i>
-          <span class="links_name">Finance</span>
+          <span class="links_name">Inventory</span>
         </a>
-        <span class="tooltip">Finance</span>
+        <span class="tooltip">Inventory</span>
       </li>
      <li>
        <a href="#">
@@ -55,6 +51,7 @@
        <span class="tooltip">Shop</span>
      </li> <br> <br> <br> <br> <br> <br> <br> <br>
      <li>
+     <li id="logout">
       <a href="#">
         <i class='bx bx-log-out' ></i>
         <span class="links_name">Logout</span>
@@ -91,30 +88,32 @@
     </div>
     <div class="main-container"> 
           <div class="sales-container">
-                <div class="square">
+                <div id="daily" class="square">
                   <h5 class="sales-txt">Daily Sales</h5>
                 </div>
 
-                <div class="square">
+                <div id="monthly" class="square">
                   <h5 class="sales-txt">Monthly Sales</h5>
                 </div>
 
-                <div class="square">
+                <div id="annual" class="square">
                   <h5 class="sales-txt">Annual Sales</h5>
                 </div>
           </div> <br>
 
           <div class="finance-container">
-                <div class="rectangle">
+                <div id="financeView" class="rectangle">
                   <h5 class="sales-txt">Finance View</h5>
                 </div>
 
-                <div class="rectangle">
+                <div id="countrySales" class="rectangle">
                   <h5 class="sales-txt">Regional Sales</h5>
                 </div>
           </div>
     </div>   
   </section>
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
   <script src="finance_script.js"></script>
   <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 </body>
