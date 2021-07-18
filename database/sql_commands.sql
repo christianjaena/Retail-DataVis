@@ -5,7 +5,7 @@ CREATE TABLE "RetailData"(
     "StockCode" VARCHAR(15),
     "Description" VARCHAR(100),
     "Quantity" INTEGER,
-    "InvoiceDate" VARCHAR(50),
+    "InvoiceDate" TIMESTAMP,
     "UnitPrice" NUMERIC,
     "CustomerID" CHAR(15),
     "Country" VARCHAR(100)
