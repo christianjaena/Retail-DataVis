@@ -1,16 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" href="inventory_styles.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inventory</title>
   </head>
-  <body onload="checkUser()">
-    <h1>Inventory</h1>
-    <button id="logout">Logout</button>
-    <div id="my_dataviz"></div>
-    <script src="https://d3js.org/d3.v4.js"></script>
+  <body>
+    <div class="sidebar">
+      <div class="logo-details">
+        <img
+          class="bx bxl-c-plus-plus icon"
+          src="/assets/images/sphere no brand alt logo.png"
+          alt="logo"
+        />
+        <div class="logo_name">Sphere</div>
+        <i class="bx bx-menu" id="btn"></i>
+      </div>
+      <ul class="nav-list">
+        <li>
+          <a href="/dashboard">
+            <i class="bx bx-grid-alt"></i>
+            <span class="links_name">Dashboard</span>
+          </a>
+          <span class="tooltip">Dashboard</span>
+        </li>
+
+        <li>
+          <a href="#">
+            <i class="bx bx-user"></i>
+            <span class="links_name">User</span>
+          </a>
+          <span class="tooltip">User</span>
+        </li>
+
+        <li>
+          <a href="/inventory">
+            <i class="bx bx-box"></i>
+            <span class="links_name">Inventory</span>
+          </a>
+          <span class="tooltip">Inventory</span>
+        </li>
+
+        <li id="logout">
+          <a href="#">
+            <i class="bx bx-log-out"></i>
+            <span class="links_name">Logout</span>
+          </a>
+          <span class="tooltip">Logout</span>
+        </li>
+      </ul>
+    </div>
+
+    <section class="home-section">
+      <div class="text">Inventory</div>
+
+      <div class="top-container">
+        <div class="search-container">
+          <div class="search_wrap search_wrap_1">
+            <div class="search_box">
+              <input type="text" class="input" placeholder="search..." />
+              <div class="btn btn_common">
+                <i class="fas fa-search"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="time">
+          <iframe
+            src="https://free.timeanddate.com/clock/i7w97wy0/n4192/fn7/fs26/fcfff/tct/pct/ftb/th2"
+            frameborder="0"
+            width="166"
+            height="38"
+            allowtransparency="true"
+          ></iframe>
+        </div>
+      </div>
+      <div class="main-container">
+        <div class="graph-container">
+          <div class="rectangle">
+            <h5 class="graph-txt">Inventory Overview</h5>
+          </div>
+
+          <div class="rectangle">
+            <h5 class="graph-txt">Item Demand</h5>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="inventory_script.js"></script>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
   </body>
 </html>
