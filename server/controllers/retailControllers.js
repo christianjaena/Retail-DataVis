@@ -42,7 +42,6 @@ const get_daily_sales = async (req, res) => {
       'SELECT DATE_TRUNC(\'day\', "InvoiceDate") AS "DailyInvoice", SUM("UnitPrice" * "Quantity") AS "Sales" FROM "RetailData" GROUP BY DATE_TRUNC(\'day\', "InvoiceDate") ORDER BY DATE_TRUNC(\'day\', "InvoiceDate")'
     );
     res.status(200).json(daily_sales.rows);
-    console.log(daily_sales);
   } catch (err) {
     res.status(400).json(err.message);
     console.log(err.message);
@@ -91,5 +90,5 @@ module.exports = {
   get_daily_sales,
   get_weekly_sales,
   get_monthly_sales,
-  get_yearly_sales
+  get_yearly_sales,
 };
