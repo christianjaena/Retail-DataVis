@@ -14,7 +14,7 @@ body {
   position: fixed;
   left: 8px;
   top: 15px;
-  height: 96%;
+  height: 94%;
   width: 78px;
   background: #513E5C;
   padding: 6px 14px;
@@ -215,7 +215,7 @@ input::placeholder { color: white; }
 
 .search_wrap .search_box{
 	position: relative;
-	width: 750px;
+	width: 600px;
 	height: 55px;
 }
 
@@ -300,8 +300,8 @@ input::placeholder { color: white; }
   margin-top: 12px;
 }
 .square {
-  height: 270px;
-  width: 410px;
+  height: 220px;
+  width: 360px;
   background-color: #fff;
   border-radius: 15px;
   margin-left: 50px;
@@ -319,8 +319,8 @@ input::placeholder { color: white; }
 }
 
 .rectangle {
-  height: 390px;
-  width: 640px;
+  height: 350px;
+  width: 565px;
   background-color: #fff;
   border-radius: 15px;
   margin-left: 50px;
