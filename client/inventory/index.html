@@ -1,119 +1,136 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="inventory_styles.css">
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   </head>
-<body onload="checkUser()">
-  <div class="sidebar">
-    <div class="logo-details">
-      <img class="bx bxl-c-plus-plus icon"  src="/assets/images/sphere no brand.png" alt="logo">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="logo icon"
+      href="../assets/images/title.png"
+      type="image/x-icon"
+    />
+    <title>Sphere</title>
+    <link rel="stylesheet" href="inventory_styles.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="logo-details">
+        <img
+          class="bx bxl-c-plus-plus icon"
+          src="../assets/images/sphere no brand alt logo.png"
+          alt="logo"
+        />
         <div class="logo_name">Sphere</div>
-        <i class='bx bx-menu' id="btn" ></i>
+        <i class="bx bx-menu" id="btn"></i>
+      </div>
+      <ul class="nav-list">
+        <li>
+          <a href="http://localhost:5000/dashboard">
+            <i class="bx bx-grid-alt"></i>
+            <span class="links_name">Dashboard</span>
+          </a>
+          <span class="tooltip">Dashboard</span>
+        </li>
+
+        <!-- <li id="user" class="nav-item">
+          <a href="http://localhost:5000/user" class="nav-link">
+            <span
+              class="iconify"
+              data-icon="ic:baseline-account-circle"
+              data-inline="false"
+            ></span>
+            <span class="link-text">User</span>
+          </a>
+        </li> -->
+
+        <li>
+          <a href="http://localhost:5000/user">
+            <i class="bx bx-user"></i>
+            <span class="links_name">User</span>
+          </a>
+          <span class="tooltip">User</span>
+        </li>
+
+        <li>
+          <a href="http://localhost:5000/inventory">
+            <i class="bx bx-box"></i>
+            <span class="links_name">Inventory</span>
+          </a>
+          <span class="tooltip">Inventory</span>
+        </li>
+
+        <li>
+          <a href="http://localhost:5000/finance">
+            <i class="bx bx-pie-chart-alt-2"></i>
+            <span class="links_name">Finance</span>
+          </a>
+          <span class="tooltip">Finance</span>
+        </li>
+
+        <li>
+          <a href="http://localhost:5000/ecommerce">
+            <i class="bx bx-cart"></i>
+            <span class="links_name">Shop</span>
+          </a>
+          <span class="tooltip">Shop</span>
+        </li>
+
+        <li id="logout">
+          <a>
+            <i class="bx bx-log-out"></i>
+            <span class="links_name">Logout</span>
+          </a>
+          <span class="tooltip">Logout</span>
+        </li>
+      </ul>
     </div>
-    <ul class="nav-list">
-      <li>
-        <a href="http://localhost:5000/dashboard">
-          <i class='bx bx-grid-alt'></i>
-          <span class="links_name">Dashboard</span>
-        </a>
-         <span class="tooltip">Dashboard</span>
-      </li>
-      <li>
-       <a href="http://localhost:5000/user">
-         <i class='bx bx-user' ></i>
-         <span class="links_name">User</span>
-       </a>
-       <span class="tooltip">User</span>
-     </li>
-     <li>
-        <a href="#">
-          <i class='bx bx-pie-chart-alt-2' ></i>
-          <span class="links_name">Finance</span> 
-        </a>
-        <span class="tooltip">Finance</span>
-      </li>
-     <li>
-        <a href="http://localhost:5000/inventory">
-          <i class='bx bx-box' ></i>
-          <span class="links_name">Inventory</span>
-        </a>
-        <span class="tooltip">Inventory</span>
-      </li>
-     <li>
-       <a href="#">
-         <i class='bx bx-cart' ></i>
-         <span class="links_name">Shop</span>
-       </a>
-       <span class="tooltip">Shop</span>
-     </li>
-     <li>
-     <li id="logout">
-      <a href="#">
-        <i class='bx bx-log-out' ></i>
-        <span class="links_name">Logout</span>
-      </a>
-      <span class="tooltip">Logout</span>
-    </li>
-   </ul>
-    </ul>
-  </div>
-  <section class="home-section">
-      <div class="text"></div>
 
-    <div class="top-container">
-            <div class="search-container">
-                  <div class="search_wrap search_wrap_1">
-                        <div class="search_box">
-                            <input type="text" class="input" placeholder="search...">
-                              <div class="btn btn_common">
-                                <i class="fas fa-search"></i>
-                              </div>
-                        </div>
-                  </div>
+    <section class="home-section">
+      <div class="text">Inventory</div>
+
+      <div class="top-container">
+        <div class="search-container">
+          <div class="search_wrap search_wrap_1">
+            <div class="search_box">
+              <input type="text" class="input" placeholder="search..." />
+              <div class="btn btn_common">
+                <i class="fas fa-search"></i>
+              </div>
             </div>
-
-            <div class="totalsales-container">
-                <div class="total-sales">
-                  <h5 class="total">Total Sales This Month: $$$$$$</h5>
-                </div>
-            </div>
-
-            <div class="time">
-              <iframe src="https://free.timeanddate.com/clock/i7w97wy0/n4192/fn7/fs26/fcfff/tct/pct/ftb/th2" frameborder="0" width="166" height="38" allowtransparency="true"></iframe>
-            </div>
-    </div>
-    <div class="main-container"> 
-          <div class="sales-container">
-                <div id="daily" class="square">
-                  <h5 class="sales-txt">Daily Sales</h5>
-                </div>
-
-                <div id="monthly" class="square">
-                  <h5 class="sales-txt">Monthly Sales</h5>
-                </div>
-
-                <div id="annual" class="square">
-                  <h5 class="sales-txt">Annual Sales</h5>
-                </div>
-          </div> <br>
-
-          <div class="finance-container">
-                <div class="rectangle">
-                  <h5 class="sales-txt">Finance View</h5>
-                  <canvas id="financeView" width="150" height="150"></canvas>
-                </div>
-
-                <div id="countrySales" class="rectangle">
-                  <h5 class="sales-txt">Regional Sales</h5>
-                </div>
           </div>
-    </div>   
-  </section>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.4.1/chart.min.js" integrity="sha512-5vwN8yor2fFT9pgPS9p9R7AszYaNn0LkQElTXIsZFCL7ucT8zDCAqlQXDdaqgA1mZP47hdvztBMsIoFxq/FyyQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="inventory_script.js"></script>
-  <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
-</body>
+        </div>
+
+        <div class="time">
+          <iframe
+            src="https://free.timeanddate.com/clock/i7w97wy0/n4192/fn7/fs26/fcfff/tct/pct/ftb/th2"
+            frameborder="0"
+            width="166"
+            height="38"
+            allowtransparency="true"
+          ></iframe>
+        </div>
+      </div>
+      <div class="main-container">
+        <div class="graph-container">
+          <div class="rectangle">
+            <h5 class="graph-txt">Inventory Overview</h5>
+          </div>
+
+          <div class="rectangle">
+            <h5 class="graph-txt">Item Demand</h5>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="inventory_script.js"></script>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+  </body>
 </html>
