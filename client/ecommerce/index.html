@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
+    <title>Sphere | Shop</title>
     <link rel="stylesheet" href="ecommerce_styles.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,13 +29,31 @@
        </a>
        <span class="tooltip">User</span>
      </li>
+ 
      <li>
-        <a href="http://localhost:5000/inventory">
+        <a href="http://localhost:5000/finance">
           <i class='bx bx-pie-chart-alt-2' ></i>
+          <span class="links_name">Finance</span>
+        </a>
+        <span class="tooltip">Finance</span>
+      </li>
+
+      <li>
+        <a href="http://localhost:5000/inventory">
+          <i class='bx bx-box' ></i>
           <span class="links_name">Inventory</span>
         </a>
         <span class="tooltip">Inventory</span>
       </li>
+
+      <li>
+      <a href="http://localhost:5000/ecommerce" class="active-page">
+        <i class='bx bx-cart' ></i>
+        <span class="links_name">Shop</span>
+      </a>
+      <span class="tooltip">Shop</span>
+    </li>
+
      <li id="logout">
       <a href="#">
         <i class='bx bx-log-out' ></i>
@@ -62,90 +81,121 @@
     </div>
     <div class="main-container"> 
 
-          <div class="product-container">
-                  <div class="square">
-                      <div class="image-container">
-                      </div>
-                      <div class="amount-container">
-                            <button class='bx bxs-minus-square'></button>
-                            <div class="count">
-                              <h6 class="amount">1</h6>
+            <div class="product-topcontainer">
+                        <div class="square">
+                            <div class="image-container"></div>
+                            <div class="amount-container">
+                                  <button class='bx bxs-minus-square'></button>
+                                  <div class="count-container">
+                                    <input type="number" class="count">
+                                  </div>
+                                  <button class='bx bxs-plus-square'></button>
                             </div>
-                            <button class='bx bxs-plus-square'></button>
-                      </div>
-
-                      <div class="price-container">
-                          <button class="price">Add to Cart</button>
-                      </div>
-                  </div>
-
-                  <div class="square">
-                    <div class="image-container">
-                    </div>
-                    <div class="amount-container">
-                          <button class='bx bxs-minus-square'></button>
-                          <div class="count">
-                            <h6 class="amount">2</h6>
-                          </div>
-                          <button class='bx bxs-plus-square'></button>
-                    </div>
-
-                    <div class="price-container">
-                        <button class="price">Add to Cart</button>
-                    </div>
-                </div>
-
-                <div class="square">
-                    <div class="image-container">
-                    </div>
-                    <div class="amount-container">
-                          <button class='bx bxs-minus-square'></button>
-                          <div class="count">
-                            <h6 class="amount">3</h6>
-                          </div>
-                          <button class='bx bxs-plus-square'></button>
-                    </div>
-
-                    <div class="price-container">
-                        <button class="price">Add to Cart</button>
-                    </div>
-              </div>
-
-              <div class="square">
-                  <div class="image-container">
-                  </div>
-                  <div class="amount-container">
-                        <button class='bx bxs-minus-square'></button>
-                        <div class="count">
-                          <h6 class="amount">4</h6>
+                            <div class="price-container">
+                                <button class="price">Add to Cart</button>
+                            </div>
                         </div>
-                        <button class='bx bxs-plus-square'></button>
-                  </div>
 
-                  <div class="price-container">
-                      <button class="price">Add to Cart</button>
-                  </div>
-              </div>
-          </div>
-          
-          
-          <div class="product-container">
-                <div class="square">
-                    <div class="image-container">
-                    </div>
-                    <div class="amount-container">
-                          <button class='bx bxs-minus-square'></button>
-                          <div class="count">
-                            <h6 class="amount">5</h6>
-                          </div>
-                          <button class='bx bxs-plus-square'></button>
-                    </div>
+                        <div class="square">
+                            <div class="image-container"></div>
+                            <div class="amount-container">
+                                  <button class='bx bxs-minus-square'></button>
+                                  <div class="count-container">
+                                    <input type="number" class="count">
+                                  </div>
+                                  <button class='bx bxs-plus-square'></button>
+                            </div>
+                            <div class="price-container">
+                                <button class="price">Add to Cart</button>
+                            </div>
+                        </div>
+                        
+                        <div class="square">
+                            <div class="image-container"></div>
+                            <div class="amount-container">
+                                  <button class='bx bxs-minus-square'></button>
+                                  <div class="count-container">
+                                    <input type="number" class="count">
+                                  </div>
+                                  <button class='bx bxs-plus-square'></button>
+                            </div>
+                            <div class="price-container">
+                                <button class="price">Add to Cart</button>
+                            </div>
+                        </div>
 
-                    <div class="price-container">
-                        <button class="price">Add to Cart</button>
-                    </div>
-                </div>
-          </div>
+                        <div class="square">
+                            <div class="image-container"></div>
+                            <div class="amount-container">
+                                  <button class='bx bxs-minus-square'></button>
+                                  <div class="count-container">
+                                    <input type="number" class="count">
+                                  </div>
+                                  <button class='bx bxs-plus-square'></button>
+                            </div>
+                            <div class="price-container">
+                                <button class="price">Add to Cart</button>
+                            </div>
+                        </div>                        
+            </div>
+
+            <div class="product-bottomcontainer">
+                        <div class="square">
+                            <div class="image-container"></div>
+                            <div class="amount-container">
+                                  <button class='bx bxs-minus-square'></button>
+                                  <div class="count-container">
+                                    <input type="number" class="count">
+                                  </div>
+                                  <button class='bx bxs-plus-square'></button>
+                            </div>
+                            <div class="price-container">
+                                <button class="price">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <div class="square">
+                            <div class="image-container"></div>
+                            <div class="amount-container">
+                                  <button class='bx bxs-minus-square'></button>
+                                  <div class="count-container">
+                                    <input type="number" class="count">
+                                  </div>
+                                  <button class='bx bxs-plus-square'></button>
+                            </div>
+                            <div class="price-container">
+                                <button class="price">Add to Cart</button>
+                            </div>
+                        </div>
+                        <div class="square">
+                            <div class="image-container"></div>
+                            <div class="amount-container">
+                                  <button class='bx bxs-minus-square'></button>
+                                  <div class="count-container">
+                                    <input type="number" class="count">
+                                  </div>
+                                  <button class='bx bxs-plus-square'></button>
+                            </div>
+                            <div class="price-container">
+                                <button class="price">Add to Cart</button>
+                            </div>
+                        </div>                             
+                        <div class="square">
+                            <div class="image-container"></div>
+                            <div class="amount-container">
+                                  <button class='bx bxs-minus-square'></button>
+                                  <div class="count-container">
+                                    <input type="number" class="count">
+                                  </div>
+                                  <button class='bx bxs-plus-square'></button>
+                            </div>
+                            <div class="price-container">
+                                <button class="price">Add to Cart</button>
+                            </div>
+                        </div>     
+                        
+            </div>
+          
 
     </div>   
   </section>

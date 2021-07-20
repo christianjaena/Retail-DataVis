@@ -180,10 +180,10 @@ body {
   font-size: 20px;
   border-radius: 12px;
 }
-  
-  #logout{
-    margin-top: 80px;
-  }
+
+#logout{
+  margin-top: 80px;
+}
 
 .home-section{
   position: relative;
@@ -271,46 +271,14 @@ input::placeholder { color: white; }
     border-radius: 13px;
 }
 
-.top-container {
-  display: flex;
-  flex-direction: row;
-}
-
-.time {
-  background-color: #C4C4C4;
-  height: 54px;
-  margin-top: 2px;
-  padding-top: 6px;
-  margin-left: 40px;
-  border-radius: 13px;
-  width: 180px;
-  text-align: center;
-}
-.total-sales {
-  background-color: #C7AABC;
-  margin-left: 49px;
-  padding-left: 10px;
-  padding-top: 15px;
-  border-radius: 14px;
-  width: 310px;
-  height: 55px;
-}
 .total {
   color: white;
   font-size: 18px;
 }
-.sales-container {
+.overview-container {
   display: flex;
   flex-direction: row;
-  margin-top: 12px;
-}
-.square {
-  height: 220px;
-  width: 360px;
-  background-color: #fff;
-  border-radius: 15px;
-  margin-left: 50px;
-  box-shadow: 0 0 5px #513E5C;
+  margin-top: 5px;
 }
 
 .sales-txt {
@@ -318,16 +286,20 @@ input::placeholder { color: white; }
   margin-top: 8px;
 }
 
-.finance-container {
+.demand-container {
   display: flex;
   flex-direction: row;
 }
 
 .rectangle {
-  height: 350px;
-  width: 565px;
+  height: 310px;
+  width: 750px;
   background-color: #fff;
   border-radius: 15px;
-  margin-left: 50px;
+  margin-left: 80px;
   box-shadow: 0 0 5px #513E5C;
+}
+
+.sidebar .active-page {
+  background-color: #8b7d77;
 }
