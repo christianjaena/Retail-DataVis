@@ -66,7 +66,6 @@
   </div>
   <section class="home-section">
       <div class="text"></div>
-
     <div class="top-container">
             <div class="search-container">
                   <div class="search_wrap search_wrap_1">
@@ -80,43 +79,45 @@
             </div>
 
             <div class="totalsales-container">
-                <div class="total-sales">
-                  <h5 id="total" class="total">Total Sales This Month:</h5>
-                </div>
-            </div>
-
-            <div class="time">
-              <iframe src="https://free.timeanddate.com/clock/i7w97wy0/n4192/fn7/fs26/fcfff/tct/pct/ftb/th2" frameborder="0" width="166" height="38" allowtransparency="true"></iframe>
-            </div>
+              <div class="total-sales">
+                <h5 id="total" class="total">Total Sales This Month: &#8287;  </h5>
+              </div>
+          </div>  
     </div>
-    <div class="main-container"> 
+
+    <div class="main-container">
           <div class="sales-container">
+            <div class="sales-left">
                 <div id="daily" class="square">
                   <h5 class="sales-txt">Daily Sales</h5>
-                  <canvas id="dailySales"></canvas>
-                </div>
+                  <canvas id="dailySales" class="sales-graph"></canvas>
+                </div> <br>
 
                 <div id="weekly" class="square">
                   <h5 class="sales-txt">Weekly Sales</h5>
-                  <canvas id="weeklySales"></canvas>
+                  <canvas id="weeklySales" class="sales-graph"></canvas>
                 </div>
-
+            </div>
+            <div class="sales-right">
                 <div id="monthly" class="square">
                   <h5 class="sales-txt">Monthly Sales</h5>
-                  <canvas id="monthlySales"></canvas>
-                </div>
-          </div> <br>
+                  <canvas id="monthlySales" class="sales-graph"></canvas>
+                </div> <br>
 
-          <div class="finance-container">
-                <div class="rectangle">
-                  <h5 class="sales-txt">Finance View</h5>
-                  <canvas id="financeView"></canvas>
+                <div class="square">
+                    <h5 class="sales-txt">Annual Sales</h5>
+                    <canvas id="financeView" class="sales-graph"></canvas>
+                  </div>
                 </div>
+          </div>
 
-                <div id="country" class="rectangle">
-                  <h5 class="sales-txt">Country Sales</h5>
-                  <canvas id="countrySales"></canvas>
-                </div>
+          <div class="finance-container">              
+                <div id="country" class="right-rectangle">
+                    <h5 class="sales-txt">Country Sales</h5>
+                    <div class="chart-container" style="position: relative; height:350px; width:480px">
+                        <canvas id="countrySales"></canvas>
+                    </div>
+                </div>                
           </div>
     </div>   
   </section>
