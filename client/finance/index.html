@@ -77,7 +77,7 @@
 
             <div class="totalsales-container">
                 <div class="total-sales">
-                  <h5 class="total">Total Sales This Month: $$$$$$</h5>
+                  <h5 id="total" class="total">Total Sales This Month:</h5>
                 </div>
             </div>
 
@@ -89,30 +89,34 @@
           <div class="sales-container">
                 <div id="daily" class="square">
                   <h5 class="sales-txt">Daily Sales</h5>
+                  <canvas id="dailySales"></canvas>
+                </div>
+
+                <div id="weekly" class="square">
+                  <h5 class="sales-txt">Weekly Sales</h5>
+                  <canvas id="weeklySales"></canvas>
                 </div>
 
                 <div id="monthly" class="square">
                   <h5 class="sales-txt">Monthly Sales</h5>
-                </div>
-
-                <div id="annual" class="square">
-                  <h5 class="sales-txt">Annual Sales</h5>
+                  <canvas id="monthlySales"></canvas>
                 </div>
           </div> <br>
 
           <div class="finance-container">
                 <div class="rectangle">
                   <h5 class="sales-txt">Finance View</h5>
-                  <canvas id="financeView" width="150" height="150"></canvas>
+                  <canvas id="financeView"></canvas>
                 </div>
 
-                <div id="countrySales" class="rectangle">
-                  <h5 class="sales-txt">Regional Sales</h5>
+                <div id="country" class="rectangle">
+                  <h5 class="sales-txt">Country Sales</h5>
+                  <canvas id="countrySales"></canvas>
                 </div>
           </div>
     </div>   
   </section>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.4.1/chart.min.js" integrity="sha512-5vwN8yor2fFT9pgPS9p9R7AszYaNn0LkQElTXIsZFCL7ucT8zDCAqlQXDdaqgA1mZP47hdvztBMsIoFxq/FyyQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="finance_script.js"></script>
   <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 </body>

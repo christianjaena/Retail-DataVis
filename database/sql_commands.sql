@@ -18,7 +18,8 @@ CREATE TABLE "Users"(
     "UserID" SERIAL PRIMARY KEY,
     "Email" VARCHAR(50),
     "Password" VARCHAR(50),
-    "Role" "userRole"
+    "Role" "userRole",
+    "Country" VARCHAR(60)
 );
 
 -- DON'T PASTE THIS YET

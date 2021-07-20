@@ -2,17 +2,17 @@ const postgres = require('../../database/postgres');
 
 const register_user = async (req, res) => {
   try {
-    const { email, password, role } = req.body;
+    const { email, password, role, country } = req.body;
     const isUser = await postgres.query(
-      'SELECT * FROM "Users" WHERE "Email"=$1 AND "Password"=$2 AND "Role"=$3',
-      [email, password, role]
+      'SELECT * FROM "Users" WHERE "Email"=$1 AND "Password"=$2 AND "Role"=$3 AND "Country"=$4',
+      [email, password, role, country]
     );
     if (isUser.rows[0]) {
       res.status(400).json('User exists');
     } else {
       const newUser = await postgres.query(
-        'INSERT INTO "Users"("Email", "Password", "Role") VALUES($1, $2, $3) RETURNING *',
-        [email, password, role]
+        'INSERT INTO "Users"("Email", "Password", "Role", "Country") VALUES($1, $2, $3, $4) RETURNING *',
+        [email, password, role, country]
       );
       res.status(200).json('Registered successfully');
     }
