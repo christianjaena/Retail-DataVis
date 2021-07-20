@@ -27,7 +27,7 @@ const get_items = async (req, res) => {
 const get_country_sales = async (req, res) => {
   try {
     const country_sales = await postgres.query(
-      'SELECT "Country", COUNT("InvoiceNo") FROM "RetailData" GROUP BY "Country"'
+      'SELECT "Country" AS "CountryInvoice", COUNT("InvoiceNo") AS "Sales" FROM "RetailData" GROUP BY "Country"'
     );
     res.status(200).json(country_sales.rows);
   } catch (err) {
