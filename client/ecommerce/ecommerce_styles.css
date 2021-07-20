@@ -10,11 +10,12 @@
 body {
     background-color: #f6f6f6;
 }
+
 .sidebar{
   position: fixed;
   left: 8px;
   top: 15px;
-  height: 96%;
+  height: 94%;
   width: 78px;
   background: #513E5C;
   padding: 6px 14px;
@@ -219,7 +220,7 @@ input::placeholder { color: white; }
 
 .search_wrap .search_box{
 	position: relative;
-	width: 750px;
+	width: 790px;
 	height: 55px;
 }
 
@@ -273,7 +274,7 @@ input::placeholder { color: white; }
 .top-container {
   display: flex;
   flex-direction: row;
-  margin-left: 5%;
+  margin-left: 3%;
 
 }
 
@@ -300,12 +301,20 @@ input::placeholder { color: white; }
   color: white;
   font-size: 18px;
 }
-.product-container {
+.product-topcontainer {
   display: flex;
   flex-direction: row;
   margin-top: 12px;
-  margin-left: 5%;
+  margin-left: 3%;
 }
+
+.product-bottomcontainer {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+  margin-left: 3%;
+}
+
 .square {
   height: 270px;
   width: 230px;
@@ -334,11 +343,6 @@ input::placeholder { color: white; }
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-}
-
-h6 {
-  font-size: 16px;
-  text-align: center;
 }
 
 button {
@@ -392,8 +396,11 @@ button:hover {
   background-color: #513E5C;
   color: white;
 }
+
 .count {
-  border: solid 2px black;
-  width: 40px;
+  border: solid 2px #513E5C;
+  width: 45px;
   border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
 }
