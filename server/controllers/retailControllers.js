@@ -83,6 +83,18 @@ const get_yearly_sales = async (req, res) => {
     console.log(err.message);
   }
 };
+
+const get_monthly_in_demand_items = async (req, res) => {
+  try {
+    const monthly_in_demand_items = await postgres.query(
+      'SELECT * FROM (SELECT "Description", DATE_TRUNC(\'month\', "InvoiceDate") AS "Month", "Quantity", ROW_NUMBER() OVER (PARTITION BY DATE_TRUNC(\'month\',"InvoiceDate") ORDER BY "Quantity" DESC) AS "MonthlyRank" FROM "RetailData" GROUP BY "Description", "Month", "Quantity") "Ranks" WHERE "MonthlyRank" <= 10;'
+    );
+    res.status(200).json(monthly_in_demand_items.rows);
+  } catch (err) {
+    res.status(400).json(err.message);
+    console.log(err.message);
+  }
+};
 module.exports = {
   get_retailData,
   get_items,
@@ -91,4 +103,5 @@ module.exports = {
   get_weekly_sales,
   get_monthly_sales,
   get_yearly_sales,
+  get_monthly_in_demand_items,
 };
