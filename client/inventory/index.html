@@ -1,24 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sphere | Inventory</title>
+    <link
+      rel="logo icon"
+      href="../assets/images/title.png"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="inventory_styles.css" />
     <link
       href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inventory</title>  
   </head>
+
   <body>
 <body onload="checkUser()">
   <div class="sidebar">
     <div class="logo-details">
       <img class="bx bxl-c-plus-plus icon"  src="/assets/images/sphere no brand.png" alt="logo">
         <div class="logo_name">Sphere</div>
-        <i class="bx bx-menu" id="btn"></i>
-      </div>
-      <ul class="nav-list">
+        <i class='bx bx-menu' id="btn" ></i>
+    </div>
+    <ul class="nav-list">
+      <!-- <li>
+        <a href="http://localhost:5000/dashboard">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Dashboard</span>
+        </a>
+         <span class="tooltip">Dashboard</span>
+      </li> -->
 
         <li>
           <a href="#">
@@ -27,6 +41,14 @@
           </a>
           <span class="tooltip">User</span>
         </li>
+        <li>
+            <a href="http://localhost:5000/finance">
+              <i class='bx bx-pie-chart-alt-2' ></i>
+              <span class="links_name">Finance</span> 
+            </a>
+            <span class="tooltip">Finance</span>
+      </li>
+
         <li>
           <a href="/inventory" class="active-page">
             <i class="bx bx-box"></i>
@@ -51,7 +73,8 @@
       </ul>
     </div>
 
-
+  <section class="home-section">
+      <div class="text"></div>
 
     <div class="main-container"> 
           <div class="overview-container">
