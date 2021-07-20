@@ -13,12 +13,6 @@ closeBtn.addEventListener('click', () => {
   menuBtnChange(); //calling the function(optional)
 });
 
-searchBtn.addEventListener('click', () => {
-  // Sidebar open when you click on the search iocn
-  sidebar.classList.toggle('open');
-  menuBtnChange(); //calling the function(optional)
-});
-
 function menuBtnChange() {
   if (sidebar.classList.contains('open')) {
     closeBtn.classList.replace('bx-menu', 'bx-menu-alt-right'); //replacing the iocns class
@@ -43,7 +37,6 @@ function checkUser() {
   const response = await fetch('http://localhost:5000/retail/yearly_sales');
   const json = await response.json();
   yearlySales = json;
-
   let ctx = document.getElementById('financeView').getContext('2d');
   const labels = yearlySales.map(
     (item) => parseInt(item.MonthlyInvoice.split('-')[0]) + 1

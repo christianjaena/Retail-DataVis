@@ -1,5 +1,6 @@
 CREATE DATABASE "RetailDataVis";
 
+SET DATESTYLE = "ISO, DMY";
 CREATE TABLE "RetailData"(
     "InvoiceNo" VARCHAR(15),
     "StockCode" VARCHAR(15),
