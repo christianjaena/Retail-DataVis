@@ -184,6 +184,11 @@ body {
   font-size: 20px;
   border-radius: 12px;
 }
+
+#logout{
+  margin-top: 80px;
+}
+
 .home-section{
   position: relative;
   background: #f6f6f6;
@@ -323,10 +328,14 @@ input::placeholder { color: white; }
 }
 
 .rectangle {
-  height: 350px;
+  height: 320px;
   width: 565px;
   background-color: #fff;
   border-radius: 15px;
   margin-left: 50px;
   box-shadow: 0 0 5px #513E5C;
+}
+
+.sidebar .active-page {
+  background-color: #8b7d77;
 }

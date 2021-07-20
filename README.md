@@ -41,9 +41,11 @@ Enter this command:
 
     CREATE TYPE "userRole" AS ENUM('SuperAdmin', 'InventoryManager', 'Finance', 'Customer');
     CREATE TABLE "Users"(
+        "UserID" SERIAL PRIMARY KEY,
         "Email" VARCHAR(50),
         "Password" VARCHAR(50),
-        "Role" "userRole"
+        "Role" "userRole",
+        "Country" VARCHAR(60)
     );
 
     psql command reference:
