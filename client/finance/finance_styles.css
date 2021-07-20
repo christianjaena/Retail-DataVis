@@ -23,6 +23,10 @@ body {
   border-radius: 18px;
 }
 
+.sidebar .active-page {
+  background-color: #8b7d77;
+}
+
 .sidebar.open{
   width: 220px;
 }
