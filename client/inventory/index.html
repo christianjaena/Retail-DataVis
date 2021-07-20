@@ -17,6 +17,7 @@
       rel="stylesheet"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inventory</title>  
   </head>
   <body>
 <body onload="checkUser()">
@@ -35,13 +36,36 @@
          <span class="tooltip">Dashboard</span>
       </li>
 
-      <li>
-       <a href="http://localhost:5000/user">
-         <i class='bx bx-user' ></i>
-         <span class="links_name">User</span>
-       </a>
-       <span class="tooltip">User</span>
-     </li>
+        <li>
+          <a href="#">
+            <i class="bx bx-user"></i>
+            <span class="links_name">User</span>
+          </a>
+          <span class="tooltip">User</span>
+        </li>
+        <li>
+          <a href="/inventory" class="active-page">
+            <i class="bx bx-box"></i>
+            <span class="links_name">Inventory</span>
+          </a>
+          <span class="tooltip">Inventory</span>
+        </li>
+        <li>
+          <a href="/ecommerce">
+            <i class="bx bx-shopping-bag"></i>
+            <span class="links_name">Shop</span>
+          </a>
+          <span class="tooltip">Shop</span>
+        </li>
+        <li id="logout">
+          <a href="#">
+            <i class="bx bx-log-out"></i>
+            <span class="links_name">Logout</span>
+          </a>
+          <span class="tooltip">Logout</span>
+        </li>
+      </ul>
+    </div>
 
      <li>
         <a href="http://localhost:5000/finance">
