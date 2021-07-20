@@ -10,15 +10,13 @@
       href="../assets/images/title.png"
       type="image/x-icon"
     />
-    <title>Sphere</title>
     <link rel="stylesheet" href="inventory_styles.css" />
     <link
       href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Inventory</title>  
   </head>
+
   <body>
 <body onload="checkUser()">
   <div class="sidebar">
@@ -28,13 +26,13 @@
         <i class='bx bx-menu' id="btn" ></i>
     </div>
     <ul class="nav-list">
-      <li>
+      <!-- <li>
         <a href="http://localhost:5000/dashboard">
           <i class='bx bx-grid-alt'></i>
           <span class="links_name">Dashboard</span>
         </a>
          <span class="tooltip">Dashboard</span>
-      </li>
+      </li> -->
 
         <li>
           <a href="#">
@@ -43,6 +41,14 @@
           </a>
           <span class="tooltip">User</span>
         </li>
+        <li>
+            <a href="http://localhost:5000/finance">
+              <i class='bx bx-pie-chart-alt-2' ></i>
+              <span class="links_name">Finance</span> 
+            </a>
+            <span class="tooltip">Finance</span>
+      </li>
+
         <li>
           <a href="/inventory" class="active-page">
             <i class="bx bx-box"></i>
@@ -67,42 +73,8 @@
       </ul>
     </div>
 
-     <li>
-        <a href="http://localhost:5000/finance">
-          <i class='bx bx-pie-chart-alt-2' ></i>
-          <span class="links_name">Finance</span> 
-        </a>
-        <span class="tooltip">Finance</span>
-      </li>
-
-     <li>
-        <a href="http://localhost:5000/inventory" class="active-page">
-          <i class='bx bx-box' ></i>
-          <span class="links_name">Inventory</span>
-        </a>
-        <span class="tooltip">Inventory</span>
-      </li>
-     <li>
-       <a href="http://localhost:5000/ecommerce">
-         <i class='bx bx-cart' ></i>
-         <span class="links_name">Shop</span>
-       </a>
-       <span class="tooltip">Shop</span>
-     </li>
-     <li>
-     <li id="logout">
-      <a href="#">
-        <i class='bx bx-log-out' ></i>
-        <span class="links_name">Logout</span>
-      </a>
-      <span class="tooltip">Logout</span>
-    </li>
-   </ul>
-    </ul>
-  </div>
   <section class="home-section">
       <div class="text"></div>
-
 
     <div class="main-container"> 
           <div class="overview-container">

@@ -28,6 +28,10 @@ body {
   background-color: #8b7d77;
 }
 
+.sidebar.open{
+  width: 220px;
+}
+
 .sidebar .logo-details{
   height: 60px;
   display: flex;
