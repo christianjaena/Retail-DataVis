@@ -40,7 +40,7 @@ async function getProducts(page) {
         <div class="amount-container">
             <button class='bx bxs-minus-square'></button>
             <div class="count-container">
-              <input type="number" class="count" value="1" min="1">
+              <input type="text" class="count" value="1" min="1">
             </div>
             <button class='bx bxs-plus-square'></button>
         </div>
@@ -86,7 +86,7 @@ async function getProducts(page) {
         body: JSON.stringify(data),
       });
       let result = await response.json();
-      window.alert(`${result.Description} was added to cart successfully!`);
+      window.alert(`${result.Quantity} ${result.Description} was added to cart successfully!`);
 
       quantity.value = 1;
     });

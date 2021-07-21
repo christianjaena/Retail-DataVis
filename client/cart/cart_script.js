@@ -1,6 +1,7 @@
 let userDetails = JSON.parse(localStorage.getItem('user'));
 let cartItems = document.getElementById('cart_items_container');
 let grandTotalDiv = document.getElementById('grand_total');
+let logoutButton = document.getElementById('logout');
 let grandTotal = 0;
 async function getItemsFromCart() {
   let response = await fetch('http://localhost:5000/cart/cart_items', {
@@ -41,10 +42,14 @@ async function getItemsFromCart() {
   });
 }
 
+logoutButton.addEventListener('click', () => {
+  window.location.href = 'http://localhost:5000/';
+  localStorage.removeItem('user');
+});
+
 function checkUser() {
   if (
     !localStorage.getItem('user') ||
-    JSON.parse(localStorage.getItem('user')).Role === 'Customer' ||
     JSON.parse(localStorage.getItem('user')).Role === 'InventoryManager' ||
     JSON.parse(localStorage.getItem('user')).Role === 'Finance'
   ) {
