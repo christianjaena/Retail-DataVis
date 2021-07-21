@@ -6,6 +6,7 @@ let pageNumber = document.getElementById('pageNumber');
 let currentPageNumber = document.getElementById('currentPageNumber');
 let prevPage = document.getElementById('prev');
 let nextPage = document.getElementById('next');
+let userDetails = JSON.parse(localStorage.getItem('user'));
 
 prevPage.addEventListener('click', async () => {
   if (parseInt(currentPageNumber.innerHTML) > 1) {
@@ -53,7 +54,7 @@ async function getProducts(page) {
   itemDiv.forEach((item) => {
     let imageContainer = item.children[0];
     let description = imageContainer.children[0].innerHTML;
-    let price = parseFloat(imageContainer.children[1].innerHTML);
+    let price = parseFloat(imageContainer.children[1].innerHTML.split('$')[1]);
     let amountContainer = item.children[1];
     let addToCartButton = item.children[2].children[0];
     let decrementButton = amountContainer.children[0];
@@ -70,9 +71,23 @@ async function getProducts(page) {
       quantity.value = parseInt(quantity.value) + 1;
     });
 
-    addToCartButton.addEventListener('click', () => {
-      console.log(description);
-      console.log(price * quantity.value);
+    addToCartButton.addEventListener('click', async () => {
+      let data = {
+        userID: userDetails.UserID,
+        description,
+        quantity: quantity.value,
+        total: price * quantity.value,
+      };
+      let response = await fetch('http://localhost:5000/cart/add_to_cart', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      let result = await response.json();
+      window.alert(`${result.Description} was added to cart successfully!`);
+
       quantity.value = 1;
     });
   });

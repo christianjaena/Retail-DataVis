@@ -49,6 +49,14 @@ Enter this command:
         "Country" VARCHAR(60)
     );
 
+    CREATE TABLE "Cart"(
+        "CartItemID" SERIAL PRIMARY KEY,
+        "UserID" INTEGER,
+        "Description" VARCHAR(100),
+        "Quantity" INTEGER,
+        "Total" NUMERIC
+    );
+
     psql command reference:
         \l                    - show all databases
         ctrl + C              - exit

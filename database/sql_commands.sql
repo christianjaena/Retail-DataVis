@@ -23,6 +23,14 @@ CREATE TABLE "Users"(
     "Country" VARCHAR(60)
 );
 
+CREATE TABLE "Cart"(
+    "CartItemID" SERIAL PRIMARY KEY,
+    "UserID" INTEGER,
+    "Description" VARCHAR(100),
+    "Quantity" INTEGER,
+    "Total" NUMERIC
+);
+
 -- DON'T PASTE THIS YET
 
 -- CREATE TABLE "Items"(
