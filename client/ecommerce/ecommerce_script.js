@@ -2,16 +2,33 @@ let shopCartDiv = document.getElementById('shop-cart');
 let content = document.getElementById('content');
 let logoutButton = document.getElementById('logout');
 let products = document.getElementById('products');
+let pageNumber = document.getElementById('pageNumber');
+let currentPageNumber = document.getElementById('currentPageNumber');
+let prevPage = document.getElementById('prev');
+let nextPage = document.getElementById('next');
+
+prevPage.addEventListener('click', async () => {
+  if (parseInt(currentPageNumber.innerHTML) > 1) {
+    currentPageNumber.innerHTML = parseInt(currentPageNumber.innerHTML) - 1;
+    products.innerHTML = '';
+    await getProducts(parseInt(currentPageNumber.innerHTML));
+  }
+});
+
+nextPage.addEventListener('click', async () => {
+  currentPageNumber.innerHTML = parseInt(currentPageNumber.innerHTML) + 1;
+  products.innerHTML = '';
+  await getProducts(parseInt(currentPageNumber.innerHTML));
+});
 
 logoutButton.addEventListener('click', () => {
   window.location.href = 'http://localhost:5000/';
   localStorage.removeItem('user');
 });
 
-(async function getProducts() {
-  let response = await fetch('http://localhost:5000/retail/items');
+async function getProducts(page) {
+  let response = await fetch(`http://localhost:5000/retail/items?page=${page}`);
   let data = await response.json();
-
   data.forEach((item, idx) => {
     products.innerHTML += `
       <div id="${idx}" class="square">
@@ -59,11 +76,13 @@ logoutButton.addEventListener('click', () => {
       quantity.value = 1;
     });
   });
-})();
+}
 
-function checkUser() {
+async function checkUser() {
   if (!localStorage.getItem('user')) {
     window.alert('You are not authorized to view this page');
     window.history.back();
+  } else {
+    await getProducts(1);
   }
 }

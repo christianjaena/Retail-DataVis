@@ -315,7 +315,6 @@ input::placeholder {
   grid-gap: 25px;
 }
 
-
 .square {
   height: 270px;
   width: 230px;
@@ -403,4 +402,8 @@ button:hover {
   border-radius: 5px;
   font-size: 16px;
   text-align: center;
+}
+
+#pageNumber {
+  display: flex;
 }

@@ -12,12 +12,21 @@ const get_retailData = async (req, res) => {
   }
 };
 
+let itemsList = [];
 const get_items = async (req, res) => {
   try {
-    const items = await postgres.query(
-      'SELECT "Description", "UnitPrice" FROM "RetailData" LIMIT 50'
-    );
-    res.status(200).json(items.rows);
+    const page = parseInt(req.query.page);
+    if (page === 1) {
+      const items = await postgres.query(
+        'SELECT "Description", "UnitPrice" FROM "RetailData"'
+      );
+      itemsList = items.rows;
+    }
+    const limit = 10;
+    const startIndex = (page - 1) * limit;
+    const endIndex = page * limit;
+    const result = itemsList.slice(startIndex, endIndex);
+    res.status(200).json(result);
   } catch (err) {
     res.status(400).json(err.message);
     console.log(err.message);

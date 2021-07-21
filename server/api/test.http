@@ -1,1 +1,1 @@
-get http://localhost:5000/retail/monthly_demand
+get http://localhost:5000/retail/items
