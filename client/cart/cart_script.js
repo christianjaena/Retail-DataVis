@@ -1,5 +1,7 @@
 let userDetails = JSON.parse(localStorage.getItem('user'));
 let cartItems = document.getElementById('cart_items_container');
+let grandTotalDiv = document.getElementById('grand_total');
+let grandTotal = 0;
 async function getItemsFromCart() {
   let response = await fetch('http://localhost:5000/cart/cart_items', {
     method: 'POST',
@@ -15,20 +17,27 @@ async function getItemsFromCart() {
     cartItems.innerHTML = '';
 
     json.forEach((item) => {
+      grandTotal += Number(parseFloat(item.Total).toFixed(2));
       cartItems.innerHTML += `
       <div class="cart-item">
         <p>${item.Description}</p>
         <p>${item.Quantity}</p>
-        <p>${item.Total}</p>
-        <button class="remove">Remove</button>
+        <p>${parseFloat(item.Total).toFixed(2)}</p>
+        <button id=${item.CartItemID} class="remove">Remove</button>
       </div>
     `;
     });
+    grandTotalDiv.innerHTML += grandTotal;
   }
 
   let removeButton = document.querySelectorAll('.remove');
   removeButton.forEach((item) => {
-    item.addEventListener('click', () => {});
+    item.addEventListener('click', async () => {
+      await fetch(`http://localhost:5000/cart/delete_cart_item/${item.id}`, {
+        method: 'DELETE',
+      });
+      getItemsFromCart();
+    });
   });
 }
 

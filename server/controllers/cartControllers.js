@@ -28,4 +28,18 @@ const cart_items = async (req, res) => {
   }
 };
 
-module.exports = { add_to_cart, cart_items };
+const delete_cart_item = async (req, res) => {
+  try {
+    const cartItemID = req.params.id;
+    const deletedCartItem = await postgres.query(
+      'DELETE FROM "Cart" WHERE "CartItemID"=$1 RETURNING *',
+      [cartItemID]
+    );
+    res.status(200).json(deletedCartItem.rows[0]);
+  } catch (err) {
+    res.status(400).json(err.message);
+    console.log(err.message);
+  }
+};
+
+module.exports = { add_to_cart, cart_items, delete_cart_item };
