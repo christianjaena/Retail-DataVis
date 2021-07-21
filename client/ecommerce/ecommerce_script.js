@@ -33,8 +33,8 @@ async function getProducts(page) {
     products.innerHTML += `
       <div id="${idx}" class="square">
         <div class="image-container">
-          <p>${item.Description}</p>
-          <p>${item.UnitPrice}</p>
+          <p id="description">${item.Description.toLowerCase()}</p>
+          <p id="unitPrice">$${item.UnitPrice}</p>
         </div>
         <div class="amount-container">
             <button class='bx bxs-minus-square'></button>

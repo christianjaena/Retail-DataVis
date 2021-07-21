@@ -22,7 +22,7 @@ const get_items = async (req, res) => {
       );
       itemsList = items.rows;
     }
-    const limit = 10;
+    const limit = 12;
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;
     const result = itemsList.slice(startIndex, endIndex);

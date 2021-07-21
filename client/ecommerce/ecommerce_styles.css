@@ -407,3 +407,7 @@ button:hover {
 #pageNumber {
   display: flex;
 }
+
+#description {
+  text-transform: capitalize;
+}
