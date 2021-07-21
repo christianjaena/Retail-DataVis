@@ -53,6 +53,6 @@ function checkUser() {
     JSON.parse(localStorage.getItem('user')).Role === 'Finance'
   ) {
     window.alert('You are not authorized to view this page');
-    window.location.href = 'http://localhost:5000/';
+    window.history.back();
   }
 }
