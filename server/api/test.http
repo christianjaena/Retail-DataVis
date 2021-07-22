@@ -1,1 +1,1 @@
-get http://localhost:5000/retail/yearly_sales
+get http://localhost:5000/retail/items

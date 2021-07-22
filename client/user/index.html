@@ -1,13 +1,13 @@
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <title>Sphere | Shop</title>
-    <link rel="stylesheet" href="ecommerce_styles.css">
+    <title>Sphere | Dashboard</title>
+    <link rel="stylesheet" href="user_styles.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Shop</title>
-    </head>
+   </head>
 <body onload="checkUser()">
   <div class="sidebar">
     <div class="logo-details">
@@ -17,7 +17,7 @@
     </div>
     <ul class="nav-list">
       <li>
-        <a href="http://localhost:5000/dashboard">
+        <a href="http://localhost:5000/dashboard" class="active-page">
           <i class='bx bx-grid-alt'></i>
           <span class="links_name">Dashboard</span>
         </a>
@@ -48,20 +48,12 @@
       </li>
 
       <li>
-      <a href="http://localhost:5000/ecommerce" class="active-page">
-        <i class='bx bx-shopping-bag' ></i>
+      <a href="http://localhost:5000/ecommerce" >
+        <i class='bx bx-cart' ></i>
         <span class="links_name">Shop</span>
       </a>
       <span class="tooltip">Shop</span>
     </li>
-    
-      <li>
-        <a href="/cart">
-          <i class='bx bx-cart' ></i>
-          <span class="links_name">Cart</span>
-        </a>
-        <span class="tooltip">Cart</span>
-      </li>
 
      <li id="logout">
       <a href="#">
@@ -88,21 +80,16 @@
                   </div>
             </div>
     </div>
-    <div class="main-container"> 
-      <div id="products" class="product-container">
-      </div>
-      <div id="pageNumber">
-        <button class="bx" id="prev">Prev</button>
-          <h1 id="currentPageNumber">1</h1>
-        <button class="bx" id="next">Next</button>
-      </div>
-    </div>   
+    <div class="main-container">
+      <h3 id="userID">User ID: </h3>
+      <h3 id="email">Email: </h3>
+      <h3 id="role">Role: </h3>
+      <h3 id="country">Country: </h3>
+    </div> 
+
   </section>
-  <footer>
-  </footer>
-  <script src="https://d3js.org/d3.v4.js"></script>
-  <script script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-  <script src="ecommerce_script.js"></script>
+  <script src="user_script.js"></script>
   <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 </body>
 </html>
+

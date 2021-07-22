@@ -40,4 +40,18 @@ const login_user = async (req, res) => {
   }
 };
 
-module.exports = { register_user, login_user };
+const get_user_details = async (req, res) => {
+  try {
+    let { userID } = req.body;
+    const getUser = await postgres.query(
+      'SELECT * FROM "Users" WHERE "UserID"=$1',
+      [userID]
+    );
+    res.status(200).json(getUser.rows[0]);
+  } catch (err) {
+    res.status(400).json(err.message);
+    console.log(err.message);
+  }
+};
+
+module.exports = { register_user, login_user, get_user_details };

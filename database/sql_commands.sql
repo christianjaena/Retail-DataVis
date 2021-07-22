@@ -1,5 +1,6 @@
 CREATE DATABASE "RetailDataVis";
 
+SET DATESTYLE = "ISO, DMY";
 CREATE TABLE "RetailData"(
     "InvoiceNo" VARCHAR(15),
     "StockCode" VARCHAR(15),
@@ -20,6 +21,14 @@ CREATE TABLE "Users"(
     "Password" VARCHAR(50),
     "Role" "userRole",
     "Country" VARCHAR(60)
+);
+
+CREATE TABLE "Cart"(
+    "CartItemID" SERIAL PRIMARY KEY,
+    "UserID" INTEGER,
+    "Description" VARCHAR(100),
+    "Quantity" INTEGER,
+    "Total" NUMERIC
 );
 
 -- DON'T PASTE THIS YET

@@ -13,12 +13,15 @@ closeBtn.addEventListener('click', () => {
   menuBtnChange(); //calling the function(optional)
 });
 
+<<<<<<< HEAD
 // searchBtn.addEventListener('click', () => {
 //   // Sidebar open when you click on the search iocn
 //   sidebar.classList.toggle('open');
 //   menuBtnChange(); //calling the function(optional)
 // });
 
+=======
+>>>>>>> 4d6f35b0157a4b8797ecbc6a6311a20d85d09ade
 function menuBtnChange() {
   if (sidebar.classList.contains('open')) {
     closeBtn.classList.replace('bx-menu', 'bx-menu-alt-right'); //replacing the iocns class
@@ -34,7 +37,7 @@ function checkUser() {
     JSON.parse(localStorage.getItem('user')).Role === 'InventoryManager'
   ) {
     window.alert('You are not authorized to view this page');
-    window.location.href = 'http://localhost:5000/';
+    window.history.back()
   }
 }
 
@@ -43,7 +46,6 @@ function checkUser() {
   const response = await fetch('http://localhost:5000/retail/yearly_sales');
   const json = await response.json();
   yearlySales = json;
-
   let ctx = document.getElementById('financeView').getContext('2d');
   const labels = yearlySales.map(
     (item) => parseInt(item.MonthlyInvoice.split('-')[0]) + 1

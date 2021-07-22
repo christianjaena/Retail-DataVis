@@ -26,15 +26,16 @@ Enter this command:
     CREATE DATABASE RetailDataVis;
     \c retaildatavis
 
+    SET DATESTYLE = "ISO, DMY";
     CREATE TABLE "RetailData"(
-       "InvoiceNo" VARCHAR(15),
-       "StockCode" VARCHAR(15),
-       "Description" VARCHAR(100),
-       "Quantity" INTEGER,
-       "InvoiceDate" VARCHAR(50),
-       "UnitPrice" NUMERIC,
-       "CustomerID" CHAR(15),
-       "Country" VARCHAR(100)
+        "InvoiceNo" VARCHAR(15),
+        "StockCode" VARCHAR(15),
+        "Description" VARCHAR(100),
+        "Quantity" INTEGER,
+        "InvoiceDate" TIMESTAMP,
+        "UnitPrice" NUMERIC,
+        "CustomerID" CHAR(15),
+        "Country" VARCHAR(100)
     );
 
     COPY "RetailData" FROM 'C:\OnlineRetail.csv' DELIMITER ',' CSV HEADER;
@@ -46,6 +47,14 @@ Enter this command:
         "Password" VARCHAR(50),
         "Role" "userRole",
         "Country" VARCHAR(60)
+    );
+
+    CREATE TABLE "Cart"(
+        "CartItemID" SERIAL PRIMARY KEY,
+        "UserID" INTEGER,
+        "Description" VARCHAR(100),
+        "Quantity" INTEGER,
+        "Total" NUMERIC
     );
 
     psql command reference:

@@ -13,12 +13,6 @@ closeBtn.addEventListener('click', () => {
   menuBtnChange(); //calling the function(optional)
 });
 
-searchBtn.addEventListener('click', () => {
-  // Sidebar open when you click on the search iocn
-  sidebar.classList.toggle('open');
-  menuBtnChange(); //calling the function(optional)
-});
-
 function menuBtnChange() {
   if (sidebar.classList.contains('open')) {
     closeBtn.classList.replace('bx-menu', 'bx-menu-alt-right'); //replacing the iocns class
@@ -27,23 +21,6 @@ function menuBtnChange() {
   }
 }
 
-let shop = document.getElementById('shop');
-let inventory = document.getElementById('inventory');
-let user = document.getElementById('user');
-let finance = document.getElementById('finance');
-
-shop.addEventListener('click', () => {
-  window.location.href = 'http://localhost:5000/ecommerce';
-});
-inventory.addEventListener('click', () => {
-  window.location.href = 'http://localhost:5000/inventory';
-});
-user.addEventListener('click', () => {
-  window.location.href = 'http://localhost:5000/user';
-});
-finance.addEventListener('click', () => {
-  window.location.href = 'http://localhost:5000/finance';
-});
 
 function checkUser() {
   if (
@@ -53,6 +30,6 @@ function checkUser() {
     JSON.parse(localStorage.getItem('user')).Role === 'Finance'
   ) {
     window.alert('You are not authorized to view this page');
-    window.location.href = 'http://localhost:5000/';
+    window.history.back();
   }
 }

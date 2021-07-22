@@ -11,6 +11,9 @@ body {
   background-color: #f6f6f6;
 }
 
+p {
+  text-transform: capitalize;
+}
 .sidebar {
   position: fixed;
   left: 8px;
@@ -23,13 +26,14 @@ body {
   transition: all 0.5s ease;
   border-radius: 18px;
 }
-.sidebar .active-page {
-  background-color: #8b7d77;
-}
 
 .sidebar.open {
   width: 220px;
 }
+.sidebar .active-page {
+  background-color: #8b7d77;
+}
+
 .sidebar .logo-details {
   height: 60px;
   display: flex;
@@ -307,107 +311,4 @@ input::placeholder {
 .total {
   color: white;
   font-size: 18px;
-}
-.product-container {
-  padding: 40px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 25px;
-}
-
-.square {
-  height: 270px;
-  width: 230px;
-  background-color: #fff;
-  border-radius: 15px;
-  margin-left: 50px;
-  box-shadow: 0 0 5px #513e5c;
-  display: flex;
-  flex-direction: column;
-}
-
-.image-container {
-  margin-top: 15px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 85%;
-  height: 63%;
-  background-color: #513e5c;
-  border-radius: 14px;
-}
-
-.amount-container {
-  display: flex;
-  flex-direction: row;
-  margin-top: 8px;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-button {
-  outline: none !important;
-  background-color: transparent;
-  border: transparent;
-}
-button:active {
-  outline: none !important;
-  border: transparent;
-  color: #513e5c;
-}
-button:hover {
-  color: #513e5c;
-}
-.bxs-minus-square {
-  color: #c7aabc;
-  font-size: 30px;
-  margin-right: 7px;
-}
-
-.bxs-plus-square {
-  color: #c7aabc;
-  font-size: 30px;
-  margin-left: 7px;
-}
-
-.price-container {
-  margin-top: 8px;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-
-.price {
-  background-color: #c7aabc;
-  width: 73%;
-  font-size: 16px;
-  border-radius: 8px;
-  height: 28px;
-}
-
-.price:active {
-  background-color: #513e5c;
-  color: white;
-}
-
-.price:hover {
-  background-color: #513e5c;
-  color: white;
-}
-
-.count {
-  border: solid 2px #513e5c;
-  width: 45px;
-  border-radius: 5px;
-  font-size: 16px;
-  text-align: center;
-}
-
-#pageNumber {
-  display: flex;
-}
-
-#description {
-  text-transform: capitalize;
 }
