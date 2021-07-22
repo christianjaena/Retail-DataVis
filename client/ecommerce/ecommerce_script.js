@@ -35,7 +35,6 @@ async function getProducts(page) {
       <div id="${idx}" class="square">
         <div class="image-container">
           <p id="description">${item.Description.toLowerCase()}</p>
-          <p id="unitPrice">$${item.UnitPrice}</p>
         </div>
         <div class="amount-container">
             <button class='bx bxs-minus-square'></button>
@@ -45,6 +44,9 @@ async function getProducts(page) {
             <button class='bx bxs-plus-square'></button>
         </div>
         <div class="price-container">
+          <div class="price-tag"> 
+              <p id="unitPrice">$${item.UnitPrice}</p>
+          </div>
             <button class="price">Add to Cart</button>
         </div>
       </div>
