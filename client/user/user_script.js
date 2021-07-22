@@ -4,6 +4,13 @@ let role = document.getElementById('role');
 let country = document.getElementById('country');
 let logoutButton = document.getElementById('logout');
 let purchases = document.getElementById('purchase_table');
+let sidebar = document.querySelector('.sidebar');
+let closeBtn = document.querySelector('#btn');
+
+closeBtn.addEventListener('click', () => {
+  sidebar.classList.toggle('open');
+  menuBtnChange(); //calling the function(optional)
+});
 
 async function getUserDetails() {
   let userID = JSON.parse(localStorage.getItem('user')).UserID;
@@ -38,7 +45,7 @@ async function getUserDetails() {
     <tr>
       <td id="description" >${item.Description}</td>
       <td>${item.Quantity}</td>
-      <td>${parseFloat(item.Total).toFixed(2)}</td>
+      <td>$${parseFloat(item.Total).toFixed(2)}</td>
       <td>${item.InvoiceDate.split('T')[0]}</td>
     </tr>
   `;

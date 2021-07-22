@@ -7,6 +7,13 @@ let currentPageNumber = document.getElementById('currentPageNumber');
 let prevPage = document.getElementById('prev');
 let nextPage = document.getElementById('next');
 let userDetails = JSON.parse(localStorage.getItem('user'));
+let sidebar = document.querySelector('.sidebar');
+let closeBtn = document.querySelector('#btn');
+
+closeBtn.addEventListener('click', () => {
+  sidebar.classList.toggle('open');
+  menuBtnChange(); //calling the function(optional)
+});
 
 prevPage.addEventListener('click', async () => {
   if (parseInt(currentPageNumber.innerHTML) > 1) {
@@ -52,6 +59,7 @@ async function getProducts(page) {
       </div>
     `;
   });
+
   let itemDiv = document.querySelectorAll('.square');
   itemDiv.forEach((item) => {
     let description = item.children[0].children[0].innerHTML;
@@ -92,7 +100,6 @@ async function getProducts(page) {
       window.alert(
         `${result.Quantity} ${result.Description} was added to cart successfully!`
       );
-
       quantity.value = 1;
     });
   });
