@@ -194,12 +194,15 @@ body {
 .home-section{
   position: relative;
   background: #f6f6f6;
+  margin-top: 30px;
   min-height: 100vh;
   top: 0;
-  left: 86px;
+  left: 40px;
   width: calc(100% - 86px);
   transition: all 0.5s ease;
   z-index: 2;
+  display: flex;
+  flex-direction: row;
 }
 
 .home-section .text{
@@ -209,78 +212,72 @@ body {
   margin-left: 35px;
 }
 
-
-.search-container .input{
-	border: 0;
-	outline: none;
-	color: #8b7d77;
-  background-color: #C4C4C4;
+.main-container{
+  display: flex;
+  flex-flow: wrap row;
+  margin-bottom: 40px;
 }
 
-input::placeholder { color: white; }
-
-.search_wrap{
-    margin-left: 50px;
-    display: inline-block;
+.item-container{
+  margin-top: 15px;
+  margin-left: 25px;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
 }
 
-.search_wrap .search_box{
-	position: relative;
-	width: 600px;
-	height: 55px;
+.top-text{
+  font-size: 20px;
+  font-weight: 700;
+  margin-left: 25px;
 }
 
-.search_wrap .search_box .input{
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	padding: 10px 20px;
-	border-radius: 3px;
-	font-size: 18px;
-  color: white;
+.top-itemlist{
+  background-color: #fff;
+  list-style: none;
+  border-radius: 15px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 93%;
+  width: 350px;
+  justify-content: space-around;
 }
 
-.search_wrap .search_box .btn{
-	position: absolute;
-	top: 5px;
-	margin-right: 8px;
-	width: 53px;
-	height: 79%;
-	background: #fff;
-	z-index: 1;
-	cursor: pointer;
-    border-radius: 10px;
+.top-item{
+  display: flex;
+  align-items: center;
+  background-color: #c7aabc;
+  border-radius: 10px;
+  width: 280px;
+  height: 100px;
+  justify-content: space-around;
 }
 
-.search_wrap .search_box .btn:hover{
-	background: #C7AABC;	
+.top-item i{
+  background-color: #f6f6f6;
+  border-radius: 10px;
+  color: #f6f6f6;
+  height: 80px;
+  width: 90px;
+  font-size: 40px;
+  box-shadow: 0 0 5px #171717;
+  
 }
 
-.search_wrap .search_box .btn.btn_common .fas{
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%,-50%);
-	color: #11101d;
-	font-size: 20px;
+.item-name{
+  font-size: 16px;
+  text-align: center;
 }
 
-.search_wrap.search_wrap_1 .search_box .btn{
-	right: 0;
-    border-radius: 10px;
+.item-qty{
+  border-top: 3px solid #fff;
+  width: 101px;
+  font-weight: 500;
 }
 
-.search_wrap.search_wrap_1 .search_box .input{
-	padding-right: 80px;
-    border-radius: 13px;
-}
-
-.total {
-  color: white;
-  font-size: 18px;
-}
 .overview-container {
   display: flex;
   flex-direction: row;
@@ -298,8 +295,8 @@ input::placeholder { color: white; }
 }
 
 .rectangle {
-  height: 310px;
-  width: 750px;
+  height: 400px;
+  width: 650px;
   background-color: #fff;
   border-radius: 15px;
   margin-left: 80px;
