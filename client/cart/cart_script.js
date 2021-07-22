@@ -5,35 +5,41 @@ let logoutButton = document.getElementById('logout');
 let checkoutButton = document.getElementById('checkout_btn');
 let grandTotal = 0;
 
+
 let cart = [];
 checkoutButton.addEventListener('click', () => {
-  cart.forEach(async (item) => {
-    console.log(item);
-    let data = {
-      userID: item.UserID,
-      description: item.Description,
-      quantity: item.Quantity,
-      total: item.Total,
-    };
-    await fetch('http://localhost:5000/invoice/checkout', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
+  if (!cart.length == 0) {
+    cart.forEach(async (item) => {
+      console.log(item);
+      let data = {
+        userID: item.UserID,
+        description: item.Description,
+        quantity: item.Quantity,
+        total: item.Total,
+      };
+      await fetch('http://localhost:5000/invoice/checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      await fetch(
+        `http://localhost:5000/cart/delete_cart_item/${item.CartItemID}`,
+        {
+          method: 'DELETE',
+        }
+      );
+      getItemsFromCart();
     });
-    await fetch(
-      `http://localhost:5000/cart/delete_cart_item/${item.CartItemID}`,
-      {
-        method: 'DELETE',
-      }
-    );
-    getItemsFromCart();
-  });
-  window.alert('Purchased successfully!');
+    window.alert('Purchased successfully!');
+  } else {
+    window.alert('Cart is empty. Please add products from the shop.');
+  }
 });
 
 async function getItemsFromCart() {
+  grandTotal = 0;
   let response = await fetch('http://localhost:5000/cart/cart_items', {
     method: 'POST',
     headers: {
@@ -50,16 +56,25 @@ async function getItemsFromCart() {
 
     json.forEach((item) => {
       grandTotal += Number(parseFloat(item.Total));
-      cartItems.innerHTML += `
-      <div class="cart-item">
-        <p>${item.Description}</p>
-        <p>${item.Quantity}</p>
-        <p>${parseFloat(item.Total).toFixed(2)}</p>
-        <button id=${item.CartItemID} class="remove">Remove</button>
-      </div>
-    `;
+      cartItems.innerHTML +=
+        ` <div id="${item.CartItemID}" class="square">
+        <div class="image-container">
+          <p id="description">${item.Description.toLowerCase()}</p>
+        </div>
+        <div class="amount-container">
+            <div class="count-container">
+              <input type="text" class="count" value="${item.Quantity}" readonly>
+            </div>
+        </div>
+        <div class="price-container">
+          <div class="price-tag"> 
+              <p id="unitPrice">$${parseFloat(item.Total).toFixed(2)}</p>
+          </div>
+          <button id=${item.CartItemID}  class="price remove">Remove</button>
+        </div>
+      </div>`;
     });
-    grandTotalDiv.innerHTML += grandTotal.toFixed(2);
+    grandTotalDiv.innerHTML = `Grand Total: $` + grandTotal;
   }
 
   let removeButton = document.querySelectorAll('.remove');
