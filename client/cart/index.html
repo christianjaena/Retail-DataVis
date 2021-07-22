@@ -1,19 +1,20 @@
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="UTF-8">
-    <title>Sphere | Dashboard</title>
-    <link rel="stylesheet" href="cart_styles.css">
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   </head>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sphere | Dashboard</title>
+  <link rel="stylesheet" href="cart_styles.css">
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
 <body onload="checkUser()">
   <div class="sidebar">
     <div class="logo-details">
-      <img class="bx bxl-c-plus-plus icon"  src="/assets/images/sphere no brand.png" alt="logo">
-        <div class="logo_name">Sphere</div>
-        <i class='bx bx-menu' id="btn" ></i>
+      <img class="bx bxl-c-plus-plus icon" src="/assets/images/sphere no brand.png" alt="logo">
+      <div class="logo_name">Sphere</div>
+      <i class='bx bx-menu' id="btn"></i>
     </div>
     <ul class="nav-list">
       <li>
@@ -21,82 +22,88 @@
           <i class='bx bx-grid-alt'></i>
           <span class="links_name">Dashboard</span>
         </a>
-         <span class="tooltip">Dashboard</span>
+        <span class="tooltip">Dashboard</span>
       </li>
       <li>
-       <a href="http://localhost:5000/user">
-         <i class='bx bx-user' ></i>
-         <span class="links_name">User</span>
-       </a>
-       <span class="tooltip">User</span>
-     </li>
- 
-     <li>
-      <a href="http://localhost:5000/finance">
-        <i class='bx bx-pie-chart-alt-2' ></i>
-        <span class="links_name">Finance</span>
-      </a>
-      <span class="tooltip">Finance</span>
-    </li>
-    <li>
-      <a href="http://localhost:5000/inventory">
-        <i class='bx bx-box' ></i>
-        <span class="links_name">Inventory</span>
-      </a>
-      <span class="tooltip">Inventory</span>
-    </li>
+        <a href="http://localhost:5000/user">
+          <i class='bx bx-user'></i>
+          <span class="links_name">User</span>
+        </a>
+        <span class="tooltip">User</span>
+      </li>
 
       <li>
-      <a href="http://localhost:5000/ecommerce" >
-        <i class='bx bx-shopping-bag' ></i>
-        <span class="links_name">Shop</span>
-      </a>
-      <span class="tooltip">Shop</span>
-    </li>
-    <li>
-      <a href="/cart" class="active-page">
-        <i class='bx bx-cart'  ></i>
-        <span class="links_name">Cart</span>
-      </a>
-      <span class="tooltip">Cart</span>
-    </li>
+        <a href="http://localhost:5000/finance">
+          <i class='bx bx-pie-chart-alt-2'></i>
+          <span class="links_name">Finance</span>
+        </a>
+        <span class="tooltip">Finance</span>
+      </li>
+      <li>
+        <a href="http://localhost:5000/inventory">
+          <i class='bx bx-box'></i>
+          <span class="links_name">Inventory</span>
+        </a>
+        <span class="tooltip">Inventory</span>
+      </li>
 
-     <li id="logout">
-      <a href="#">
-        <i class='bx bx-log-out' ></i>
-        <span class="links_name">Logout</span>
-      </a>
-      <span class="tooltip">Logout</span>
-    </li>
-   </ul>
+      <li>
+        <a href="http://localhost:5000/ecommerce">
+          <i class='bx bx-shopping-bag'></i>
+          <span class="links_name">Shop</span>
+        </a>
+        <span class="tooltip">Shop</span>
+      </li>
+      <li>
+        <a href="/cart" class="active-page">
+          <i class='bx bx-cart'></i>
+          <span class="links_name">Cart</span>
+        </a>
+        <span class="tooltip">Cart</span>
+      </li>
+
+      <li id="logout">
+        <a href="#">
+          <i class='bx bx-log-out'></i>
+          <span class="links_name">Logout</span>
+        </a>
+        <span class="tooltip">Logout</span>
+      </li>
+    </ul>
     </ul>
   </div>
   <section class="home-section">
-      <div class="text"></div>
+    <div class="text"></div>
 
     <div class="top-container">
-            <div class="search-container">
-                  <div class="search_wrap search_wrap_1">
-                        <div class="search_box">
-                            <input type="text" class="input" placeholder="search...">
-                              <div class="btn btn_common">
-                                <i class="fas fa-search"></i>
-                              </div>
-                        </div>
-                  </div>
+      <div class="search-container">
+        <div class="search_wrap search_wrap_1">
+          <div class="search_box">
+            <input type="text" class="input" placeholder="search...">
+            <div class="btn btn_common">
+              <i class="fas fa-search"></i>
             </div>
+          </div>
+        </div>
+      </div>
+      <div class="grandtotal-container">
+        <div class="grand-total">
+          <h5 id="grand_total" class="total">Grand Total: $</h5>
+        </div>
     </div>
-    <div id="cart_items_container" class="main-container">
-      
-    </div> 
-    <div id="checkout">
-      <h1 id="grand_total">Grand Total: $</h1>
-      <button id="checkout_btn">Checkout</button>
     </div>
 
+    
+    <div class="main-container">
+      <div id="cart_items_container" class="product-container">
+
+      </div>
+    </div>
+    <button id="checkout_btn">Checkout</button>
   </section>
+  
   <script src="cart_script.js"></script>
   <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 </body>
-</html>
 
+</html>
