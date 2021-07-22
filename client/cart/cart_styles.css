@@ -192,10 +192,6 @@ p {
   border-radius: 12px;
 }
 
-#logout {
-  margin-top: 80px;
-}
-
 .home-section {
   position: relative;
   background: #f6f6f6;
@@ -297,7 +293,7 @@ input::placeholder {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
 }
-
+/*
 .square {
   height: 155px;
   width: 240px;
@@ -321,6 +317,7 @@ input::placeholder {
   color: white;
   padding: 6px 8px 6px 8px;
 }
+*/
 
 .amount-container {
   display: flex;
@@ -380,23 +377,13 @@ button:hover {
   height: 28px;
 }
 
-.price:active {
-  background-color: #513e5c;
-  color: white;
-  transform: scale(0.95);
-}
-
-.price:hover {
-  background-color: #513e5c;
-  color: white;
-}
-
 .count {
-  border: solid 2px #513e5c;
+  
   width: 45px;
   border-radius: 5px;
   font-size: 16px;
   text-align: center;
+  margin-left: 30px;
 }
 
 #checkout_btn {
@@ -431,3 +418,43 @@ input::-webkit-inner-spin-button {
   font-size: 18px;
   text-align: center;
 }
+
+
+.delete-icon {
+  width: 230px;
+}
+.bxs-x-circle {
+  color: #8b7d77;
+  font-size: 22px;
+  margin-top: 5px;
+  margin-left: 93%;
+}
+.bxs-x-circle:active {
+  color: #513E5C;
+  transform: scale(0.95);
+}
+
+.square {
+  height: 195px;
+  width: 240px;
+  background-color: #fff;
+  border-radius: 15px;
+  margin-left: 50px;
+  box-shadow: 0 0 5px #513E5C;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 15px;
+}
+
+.image-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 89%;
+  height: 79%;
+  background-color: #513E5C;
+  border-radius: 14px;
+  text-align: center;
+  color: white;
+  padding: 6px 8px 6px 8px;
+}
+

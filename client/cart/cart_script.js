@@ -4,10 +4,17 @@ let grandTotalDiv = document.getElementById('grand_total');
 let logoutButton = document.getElementById('logout');
 let checkoutButton = document.getElementById('checkout_btn');
 let grandTotal = 0;
+let sidebar = document.querySelector('.sidebar');
+let closeBtn = document.querySelector('#btn');
 
+closeBtn.addEventListener('click', () => {
+  sidebar.classList.toggle('open');
+  menuBtnChange(); //calling the function(optional)
+});
 
 let cart = [];
 checkoutButton.addEventListener('click', () => {
+  if (confirm ('Proceed to checkout? This action cannot be undone.') == true) {
   if (!cart.length == 0) {
     cart.forEach(async (item) => {
       console.log(item);
@@ -35,7 +42,7 @@ checkoutButton.addEventListener('click', () => {
     window.alert('Purchased successfully!');
   } else {
     window.alert('Cart is empty. Please add products from the shop.');
-  }
+  }}
 });
 
 async function getItemsFromCart() {
@@ -56,6 +63,7 @@ async function getItemsFromCart() {
 
     json.forEach((item) => {
       grandTotal += Number(parseFloat(item.Total));
+      /*
       cartItems.innerHTML +=
         ` <div id="${item.CartItemID}" class="square">
         <div class="image-container">
@@ -73,19 +81,41 @@ async function getItemsFromCart() {
           <button id=${item.CartItemID}  class="price remove">Remove</button>
         </div>
       </div>`;
+      */
+      cartItems.innerHTML += `
+      <div class="square">
+      <div id=${item.CartItemID} class="delete-icon remove">
+        <button class='bx bxs-x-circle'></button>
+      </div>
+      <div class="image-container">
+        <p id="description">${item.Description.toLowerCase()}</p>
+      </div>
+      <div class="price-container">
+      <div class="count-container">
+          <input type="text" class="count" value="${item.Quantity}" readonly>
+        </div>
+        <h6 id="unitPrice" class="price">$${parseFloat(item.Total).toFixed(2)}</h6>
+      </div>
+    </div>
+      `;
     });
     grandTotalDiv.innerHTML = `Grand Total: $` + grandTotal;
   }
 
   let removeButton = document.querySelectorAll('.remove');
   removeButton.forEach((item) => {
+    
     item.addEventListener('click', async () => {
+      if (confirm ('Are you sure to delete this product? This action cannot be undone.') == true) {
       await fetch(`http://localhost:5000/cart/delete_cart_item/${item.id}`, {
         method: 'DELETE',
       });
       getItemsFromCart();
+    }
     });
+  
   });
+
 }
 
 logoutButton.addEventListener('click', () => {

@@ -189,10 +189,6 @@ body {
   border-radius: 12px;
 }
 
-#logout{
-  margin-top: 80px;
-}
-
 .home-section{
   position: relative;
   background: #f6f6f6;
@@ -202,11 +198,13 @@ body {
   width: calc(100% - 86px);
   transition: all 0.5s ease;
   z-index: 2;
+  display: flex;
+  flex-direction: row;
 }
 
 .main-container{
   margin: 15px 0 0 15px;
-  width: 930px;
+  width: 880px;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -244,6 +242,13 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.sales-info:hover{
+  background-color: #513E5C;
+  color: #c7aabc;
+  cursor:auto;
 }
 
 .sales-info i{
@@ -263,23 +268,25 @@ body {
 .second-row{
   display: flex;
   flex-direction: row;
+  width: 880px;
 }
 
 .inventory-container{
-  margin-right: 10px;
+  margin-right: 8px;
 }
 
 .inventory-summary{
   background-color: #fff;
   list-style: none;
   height: 200px;
-  width: 360px;
+  width: 330px;
   padding: 0;
   margin: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  
 }
 
 .inv-info{
@@ -289,8 +296,8 @@ body {
   width: 300px;
   height: 50px;
   display: flex;
-  
   align-items: center;
+   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 .inv-name{
@@ -314,7 +321,7 @@ body {
 .product-details{
   list-style: none;
   height: 200px;
-  width: 360px;
+  width: 330px;
   padding: 0;
   margin: 0;
   display: flex;
@@ -332,6 +339,7 @@ body {
   display: flex;
   
   align-items: center;
+   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 .prod-name{
@@ -354,9 +362,13 @@ body {
   width: 200px;
   height: 180px;
   display: flex;
+   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 .small-graph h5{
   margin: 4px 0 0 10px;
 }
 
+.calendar{
+  margin: 55px 0 0 18px;
+}
