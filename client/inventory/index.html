@@ -73,24 +73,115 @@
       </ul>
     </div>
 
+
   <section class="home-section">
-      <div class="text"></div>
+      <div class="main-container">
+          <div class="graph-container">
+              <div class="overview-container">
+                    <div class="rectangle">
+                      <h5 class="sales-txt">Inventory Overview</h5>
+                    </div>
+              </div> <br>
 
-    <div class="main-container"> 
-          <div class="overview-container">
-                <div id="daily" class="rectangle">
-                  <h5 class="sales-txt">Inventory Overview</h5>
+              <div class="demand-container">
+                    <div class="rectangle">
+                      <h5 class="sales-txt">Item Demand</h5>
+                      <canvas id="financeView" width="150" height="150"></canvas>
+                   </div>
+              </div>
+          </div> 
+      </div>
+
+      <div class="side-container">
+        <h3 class="top-text">Top Items of the Month </h3>
+              <div class="item-container">
+                
+                <div class="one-five">
+                  <ul class="top-itemlist">
+                    
+
+                    <li class="top-item">
+                        <i class="bx bx-shopping-bag"></i>
+                        <span class="item-name">Item1
+                          <div class="item-qty">QTY</div>
+                        </span>
+                    </li>
+
+                    <li class="top-item">
+                        <i class="bx bx-shopping-bag"></i>
+                        <span class="item-name">Item2
+                          <div class="item-qty">QTY</div>
+                        </span>
+                    </li>
+
+                    <li class="top-item">
+                        <i class="bx bx-shopping-bag"></i>
+                        <span class="item-name">Item3
+                          <div class="item-qty">QTY</div>
+                        </span>
+                    </li>
+
+                    <li class="top-item">
+                        <i class="bx bx-shopping-bag"></i>
+                        <span class="item-name">Item4
+                          <div class="item-qty">QTY</div>
+                        </span>
+                    </li>
+
+                    <li class="top-item">
+                        <i class="bx bx-shopping-bag"></i>
+                        <span class="item-name">Item5
+                          <div class="item-qty">QTY</div>
+                        </span>
+                    </li>
+                </ul>
                 </div>
-          </div> <br>
 
-          <div class="demand-container">
-                <div class="rectangle">
-                  <h5 class="sales-txt">Item Demand</h5>
-                  <canvas id="financeView" width="150" height="150"></canvas>
+                <div class="six-ten">
+                  <ul class="top-itemlist">
+
+                    <li class="top-item">
+                        <i class="bx bx-shopping-bag"></i>
+                        <span class="item-name">Item1
+                          <div class="item-qty">QTY</div>
+                        </span>
+                    </li>
+
+                    <li class="top-item">
+                        <i class="bx bx-shopping-bag"></i>
+                        <span class="item-name">Item2
+                          <div class="item-qty">QTY</div>
+                        </span>
+                    </li>
+
+                    <li class="top-item">
+                        <i class="bx bx-shopping-bag"></i>
+                        <span class="item-name">Item3
+                          <div class="item-qty">QTY</div>
+                        </span>
+                    </li>
+
+                    <li class="top-item">
+                        <i class="bx bx-shopping-bag"></i>
+                        <span class="item-name">Item4
+                          <div class="item-qty">QTY</div>
+                        </span>
+                    </li>
+
+                    <li class="top-item">
+                        <i class="bx bx-shopping-bag"></i>
+                        <span class="item-name">Item5
+                          <div class="item-qty">QTY</div>
+                        </span>
+                    </li>
+                </ul>
                 </div>
-
+            </div>  
           </div>
-    </div>   
+
+            
+
+   
   </section>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="inventory_script.js"></script>
