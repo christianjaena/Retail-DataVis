@@ -279,6 +279,7 @@ input::placeholder {
   display: flex;
   flex-direction: row;
   margin-left: 3%;
+  margin-top: 10px;
 }
 
 .main-container {

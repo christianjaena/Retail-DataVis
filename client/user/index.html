@@ -69,28 +69,31 @@
  
     <div class="main-container">
 
-      <div class="user-container">
-        <div class="user-img"> <i class='bx bxs-user'></i></div>
-        <ul class="user">
-          <li class="user-text" id="userID"> User ID: </li>
-          <li class="user-text" id="email"> Email: </li>
-          <li class="user-text" id="role"> Role: </li>
-          <li class="user-text" id="country"> Country: </li>
-          </ul>
-      </div>
+        <div class="profile-container">
+          <div class="left-profile">
+              <h3 id="userID">User ID: </h3>
+              <h3 id="email">Email: </h3>
+          </div>
+          <div class="right-profile">
+              <h3 id="role">Role: </h3>
+              <h3 id="country">Country: </h3>
+          </div>
+        </div> <br>
+
+        <div class="purchase-container">
+          <h3>Purchases</h3>
+          <table id="purchase_table">
+            <tr>
+              <td>Description</td>
+              <td>Quantity</td>
+              <td>Total</td>
+              <td>Date Purchased</td>
+            </tr>
+          </table>
+        </div>
 
     </div> 
-    <div>
-      <h3>Purchases</h3>
-      <table id="purchase_table">
-        <tr>
-          <td>Description</td>
-          <td>Quantity</td>
-          <td>Total</td>
-          <td>Date Purchased</td>
-        </tr>
-      </table>
-    </div>
+
 
   </section>
   <script src="user_script.js"></script>
