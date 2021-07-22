@@ -17,14 +17,14 @@
     </div>
     <ul class="nav-list">
       <li>
-        <a href="http://localhost:5000/dashboard" class="active-page">
+        <a href="http://localhost:5000/dashboard" >
           <i class='bx bx-grid-alt'></i>
           <span class="links_name">Dashboard</span>
         </a>
          <span class="tooltip">Dashboard</span>
       </li>
       <li>
-       <a href="http://localhost:5000/user">
+       <a href="http://localhost:5000/user" class="active-page">
          <i class='bx bx-user' ></i>
          <span class="links_name">User</span>
        </a>
@@ -66,25 +66,19 @@
     </ul>
   </div>
   <section class="home-section">
-      <div class="text"></div>
-
-    <div class="top-container">
-            <div class="search-container">
-                  <div class="search_wrap search_wrap_1">
-                        <div class="search_box">
-                            <input type="text" class="input" placeholder="search...">
-                              <div class="btn btn_common">
-                                <i class="fas fa-search"></i>
-                              </div>
-                        </div>
-                  </div>
-            </div>
-    </div>
+ 
     <div class="main-container">
-      <h3 id="userID">User ID: </h3>
-      <h3 id="email">Email: </h3>
-      <h3 id="role">Role: </h3>
-      <h3 id="country">Country: </h3>
+
+      <div class="user-container">
+        <div class="user-img"> <i class='bx bxs-user'></i></div>
+        <ul class="user">
+          <li class="user-text" id="userID"> User ID: </li>
+          <li class="user-text" id="email"> Email: </li>
+          <li class="user-text" id="role"> Role: </li>
+          <li class="user-text" id="country"> Country: </li>
+          </ul>
+      </div>
+
     </div> 
 
   </section>
