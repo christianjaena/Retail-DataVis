@@ -30,6 +30,7 @@ checkoutButton.addEventListener('click', () => {
     );
     getItemsFromCart();
   });
+  window.alert('Purchased successfully!');
 });
 
 async function getItemsFromCart() {

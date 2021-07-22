@@ -47,18 +47,19 @@ async function getProducts(page) {
           <div class="price-tag"> 
               <p id="unitPrice">$${item.UnitPrice}</p>
           </div>
-            <button class="price">Add to Cart</button>
+          <button class="price">Add to Cart</button>
         </div>
       </div>
     `;
   });
   let itemDiv = document.querySelectorAll('.square');
   itemDiv.forEach((item) => {
-    let imageContainer = item.children[0];
-    let description = imageContainer.children[0].innerHTML;
-    let price = parseFloat(imageContainer.children[1].innerHTML.split('$')[1]);
+    let description = item.children[0].children[0].innerHTML;
+    let price = parseFloat(
+      item.children[2].children[0].children[0].innerHTML.split('$')[1]
+    );
     let amountContainer = item.children[1];
-    let addToCartButton = item.children[2].children[0];
+    let addToCartButton = item.children[2].children[1];
     let decrementButton = amountContainer.children[0];
     let quantity = amountContainer.children[1].children[0];
     let incrementButton = amountContainer.children[2];
@@ -88,7 +89,9 @@ async function getProducts(page) {
         body: JSON.stringify(data),
       });
       let result = await response.json();
-      window.alert(`${result.Quantity} ${result.Description} was added to cart successfully!`);
+      window.alert(
+        `${result.Quantity} ${result.Description} was added to cart successfully!`
+      );
 
       quantity.value = 1;
     });
