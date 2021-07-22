@@ -31,6 +31,15 @@ CREATE TABLE "Cart"(
     "Total" NUMERIC
 );
 
+CREATE TABLE "Invoices"(
+    "InvoiceNo" SERIAL PRIMARY KEY,
+    "UserID" INTEGER,
+    "Description" VARCHAR(100),
+    "Quantity" INTEGER,
+    "Total" NUMERIC,
+    "InvoiceDate" TIMESTAMP
+);
+
 -- DON'T PASTE THIS YET
 
 -- CREATE TABLE "Items"(

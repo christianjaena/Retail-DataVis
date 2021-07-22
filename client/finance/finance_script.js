@@ -13,15 +13,6 @@ closeBtn.addEventListener('click', () => {
   menuBtnChange(); //calling the function(optional)
 });
 
-<<<<<<< HEAD
-// searchBtn.addEventListener('click', () => {
-//   // Sidebar open when you click on the search iocn
-//   sidebar.classList.toggle('open');
-//   menuBtnChange(); //calling the function(optional)
-// });
-
-=======
->>>>>>> 4d6f35b0157a4b8797ecbc6a6311a20d85d09ade
 function menuBtnChange() {
   if (sidebar.classList.contains('open')) {
     closeBtn.classList.replace('bx-menu', 'bx-menu-alt-right'); //replacing the iocns class

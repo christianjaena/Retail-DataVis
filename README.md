@@ -57,6 +57,15 @@ Enter this command:
         "Total" NUMERIC
     );
 
+    CREATE TABLE "Invoices"(
+        "InvoiceNo" SERIAL PRIMARY KEY,
+        "UserID" INTEGER,
+        "Description" VARCHAR(100),
+        "Quantity" INTEGER,
+        "Total" NUMERIC,
+        "InvoiceDate" TIMESTAMP
+    );
+
     psql command reference:
         \l                    - show all databases
         ctrl + C              - exit
