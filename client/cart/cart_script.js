@@ -4,6 +4,13 @@ let grandTotalDiv = document.getElementById('grand_total');
 let logoutButton = document.getElementById('logout');
 let checkoutButton = document.getElementById('checkout_btn');
 let grandTotal = 0;
+let sidebar = document.querySelector('.sidebar');
+let closeBtn = document.querySelector('#btn');
+
+closeBtn.addEventListener('click', () => {
+  sidebar.classList.toggle('open');
+  menuBtnChange(); //calling the function(optional)
+});
 
 
 let cart = [];
