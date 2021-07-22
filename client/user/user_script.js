@@ -2,6 +2,7 @@ let userId = document.getElementById('userID');
 let email = document.getElementById('email');
 let role = document.getElementById('role');
 let country = document.getElementById('country');
+let logoutButton = document.getElementById('logout');
 
 async function getUserDetails() {
   let userID = JSON.parse(localStorage.getItem('user')).UserID;
@@ -22,10 +23,11 @@ async function getUserDetails() {
 
 function checkUser() {
   if (
-    !localStorage.getItem('user') ||
-    JSON.parse(localStorage.getItem('user')).Role === 'Customer' ||
-    JSON.parse(localStorage.getItem('user')).Role === 'InventoryManager' ||
-    JSON.parse(localStorage.getItem('user')).Role === 'Finance'
+    !localStorage.getItem('user') 
+    //||
+   // JSON.parse(localStorage.getItem('user')).Role === 'Customer' ||
+   // JSON.parse(localStorage.getItem('user')).Role === 'InventoryManager' ||
+    //JSON.parse(localStorage.getItem('user')).Role === 'Finance'
   ) {
     window.alert('You are not authorized to view this page');
     window.history.back();
@@ -33,3 +35,9 @@ function checkUser() {
     getUserDetails();
   }
 }
+
+
+logoutButton.addEventListener('click', () => {
+  window.location.href = 'http://localhost:5000/';
+  localStorage.removeItem('user');
+});
