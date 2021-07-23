@@ -269,8 +269,10 @@ body {
   margin-left: 50px;
   display: flex;
   flex-direction: row;
-  background-color: white;
+  background-color: #513e5c;
+  color: #f6f6f6;
   width: 1000px;
+  height: 110px;
   border-radius: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -281,6 +283,7 @@ body {
   margin-left: 50px;
   border-radius: 10px;
   background-color: white;
+  color: #513e5c;
   width: 1000px;
   padding-left: 20px;
   padding-top: 5px;
@@ -291,6 +294,7 @@ body {
 
 .left-profile {
   margin: auto;
+  margin-left: 50px;
 }
 .right-profile {
   margin: auto;
@@ -302,8 +306,10 @@ body {
 
 .profile-container h3 {
   font-size: 18px;
+  margin-bottom: 6px;
 }
 
 td {
   padding: 15px;
 }
+
