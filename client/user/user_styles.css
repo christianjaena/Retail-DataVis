@@ -206,13 +206,6 @@ body {
   margin-left: 35px;
 }
 
-.main-container{
-  position: absolute;
-  top:50px;
-  left: 400px;
-  
-}
-
 .user-container{
   display: flex;
   flex-direction: column;
@@ -265,8 +258,9 @@ body {
 
 .main-container {
   margin-top: 20px;
-  margin-left: 3%;
-
+  position:static;
+  top:50px;
+  left: 400px;
 }
 
 .profile-container {
