@@ -12,9 +12,13 @@ let month;
 function filterItems(year, month) {
   topItems.innerHTML = '';
   topItems2.innerHTML = '';
-  items
-    .filter((item) => item.Year === year && item.Month === month)
-    .forEach((item) => {
+  let filteredItems = items.filter(
+    (item) => item.Year === year && item.Month === month
+  );
+  if (!filteredItems.length) {
+    topItems.innerHTML += '<h3>No data for this month.</h3>';
+  } else {
+    filteredItems.forEach((item) => {
       if (item.MonthlyRank <= 5) {
         topItems.innerHTML += `
                     <li class="top-item">
@@ -31,6 +35,7 @@ function filterItems(year, month) {
     `;
       }
     });
+  }
 }
 
 logoutButton.addEventListener('click', () => {
@@ -66,28 +71,13 @@ function checkUser() {
 
 async function renderDropdown() {
   await getItemDemand();
+  await itemDemandGraph();
   lowerSubcontainer.innerHTML = `
         <select class="dropdown" name="year" id="year">
-          <option value="" disabled selected>Select Year</option>
           <option value="2010">2010</option>
           <option value="2011">2011</option>
         </select>
         <select class="dropdown" id="month" name="month">
-          <option value="" disabled selected>Select Month</option>
-        </select>
-  `;
-  year = document.getElementById('year');
-  month = document.getElementById('month');
-  year.addEventListener('change', () => {
-    if (year.value === '2010') {
-      month.innerHTML = `
-              <option value="" disabled selected>Select Month</option>
-              <option value="11">November</option>
-              <option value="12">December</option>
-  `;
-    } else if (year.value === '2011') {
-      month.innerHTML = `
-              <option value="" disabled selected>Select Month</option>
               <option value="01">January</option>
               <option value="02">February</option>
               <option value="03">March</option>
@@ -99,8 +89,14 @@ async function renderDropdown() {
               <option value="09">September</option>
               <option value="10">October</option>
               <option value="11">November</option>
+              <option value="12">December</option>
+        </select>
   `;
-    }
+  year = document.getElementById('year');
+  month = document.getElementById('month');
+  month.value = '11';
+  filterItems(year.value, month.value);
+  year.addEventListener('change', () => {
     filterItems(year.value, month.value);
   });
   month.addEventListener('change', () => {
@@ -118,4 +114,33 @@ async function getItemDemand() {
     item.Month = item.Month.split('-')[1];
     items.push(item);
   });
+}
+
+async function itemDemandGraph() {
+  let ctx = document.getElementById('itemDemand').getContext('2d');
+  const labels = items.map((item) => `${item.Year}-${item.Month}`);
+  const data = {
+    labels: labels,
+    datasets: [
+      {
+        type: 'line',
+        label: 'Item with most demand per Month',
+        data: items.map((item) => item.Quantity),
+        backgroundColor: ['rgba(54, 162, 235, 0.2)'],
+        borderColor: ['rgba(54, 162, 235, 1)'],
+        borderWidth: 1,
+      },
+    ],
+  };
+  const config = {
+    data: data,
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  };
+  new Chart(ctx, config);
 }
