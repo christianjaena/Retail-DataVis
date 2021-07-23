@@ -9,6 +9,13 @@ let nextPage = document.getElementById('next');
 let userDetails = JSON.parse(localStorage.getItem('user'));
 let sidebar = document.querySelector('.sidebar');
 let closeBtn = document.querySelector('#btn');
+let searchBar = document.getElementById('search');
+let searchButton = document.getElementById('searchButton');
+
+searchButton.addEventListener('click', async () => {
+  products.innerHTML = '';
+  await getProducts(parseInt(currentPageNumber.innerHTML), searchBar.value);
+});
 
 closeBtn.addEventListener('click', () => {
   sidebar.classList.toggle('open');
@@ -19,14 +26,14 @@ prevPage.addEventListener('click', async () => {
   if (parseInt(currentPageNumber.innerHTML) > 1) {
     currentPageNumber.innerHTML = parseInt(currentPageNumber.innerHTML) - 1;
     products.innerHTML = '';
-    await getProducts(parseInt(currentPageNumber.innerHTML));
+    await getProducts(parseInt(currentPageNumber.innerHTML), searchBar.value);
   }
 });
 
 nextPage.addEventListener('click', async () => {
   currentPageNumber.innerHTML = parseInt(currentPageNumber.innerHTML) + 1;
   products.innerHTML = '';
-  await getProducts(parseInt(currentPageNumber.innerHTML));
+  await getProducts(parseInt(currentPageNumber.innerHTML), searchBar.value);
 });
 
 logoutButton.addEventListener('click', () => {
@@ -34,8 +41,10 @@ logoutButton.addEventListener('click', () => {
   localStorage.removeItem('user');
 });
 
-async function getProducts(page) {
-  let response = await fetch(`http://localhost:5000/retail/items?page=${page}`);
+async function getProducts(page, searchString) {
+  let response = await fetch(
+    `http://localhost:5000/retail/items?page=${page}&search=${searchString}`
+  );
   let data = await response.json();
   data.forEach((item, idx) => {
     products.innerHTML += `
@@ -110,6 +119,6 @@ async function checkUser() {
     window.alert('You are not authorized to view this page');
     window.history.back();
   } else {
-    await getProducts(1);
+    await getProducts(1, '');
   }
 }
