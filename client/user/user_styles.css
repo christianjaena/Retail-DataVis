@@ -258,7 +258,7 @@ body {
 }
 
 .main-container {
-  margin-top: 20px;
+  margin-top: 30px;
   position:static;
   top:50px;
   left: 400px;
@@ -270,19 +270,23 @@ body {
   display: flex;
   flex-direction: row;
   background-color: white;
-  width: 900px;
+  width: 1000px;
   border-radius: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .purchase-container {
   margin-left: 50px;
   border-radius: 10px;
   background-color: white;
-  width: 900px;
+  width: 1000px;
   padding-left: 20px;
   padding-top: 5px;
   padding-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .left-profile {
