@@ -2,9 +2,7 @@ const postgres = require('../../database/postgres');
 
 const get_retailData = async (req, res) => {
   try {
-    const retailData = await postgres.query(
-      'SELECT * FROM "RetailData" LIMIT 50'
-    );
+    const retailData = await postgres.query('SELECT * FROM "RetailData"');
     res.status(200).json(retailData.rows);
   } catch (err) {
     res.status(400).json(err.message);
@@ -104,6 +102,19 @@ const get_monthly_in_demand_items = async (req, res) => {
     console.log(err.message);
   }
 };
+
+const get_item_prices = async (req, res) => {
+  try {
+    const item_prices = await postgres.query(
+      'SELECT DISTINCT "Description", "UnitPrice" FROM "RetailData" WHERE "Description" != \'AMAZON FEE\' AND "Description" != \'Manual\' AND "Description" != \'DOTCOM POSTAGE\' AND "Description" != \'Adjust bad debt\' AND "Description" != \'Discount\' AND "Description" != \'POSTAGE\' AND "Description" != \'Bank Charges\' AND "Description" != \'CRUK Commission\' AND "Description" != \'SAMPLES\' AND "Description" != \'CARRIAGE\' ORDER BY "UnitPrice" DESC LIMIT 50'
+    );
+    res.status(200).json(item_prices.rows);
+  } catch (err) {
+    res.status(400).json(err.message);
+    console.log(err.message);
+  }
+};
+
 module.exports = {
   get_retailData,
   get_items,
@@ -113,4 +124,5 @@ module.exports = {
   get_monthly_sales,
   get_yearly_sales,
   get_monthly_in_demand_items,
+  get_item_prices,
 };
