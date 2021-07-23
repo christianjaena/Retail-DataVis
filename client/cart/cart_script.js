@@ -14,35 +14,38 @@ closeBtn.addEventListener('click', () => {
 
 let cart = [];
 checkoutButton.addEventListener('click', () => {
-  if (confirm ('Proceed to checkout? This action cannot be undone.') == true) {
-  if (!cart.length == 0) {
-    cart.forEach(async (item) => {
-      console.log(item);
-      let data = {
-        userID: item.UserID,
-        description: item.Description,
-        quantity: item.Quantity,
-        total: item.Total,
-      };
-      await fetch('http://localhost:5000/invoice/checkout', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+  if (confirm('Proceed to checkout? This action cannot be undone.') == true) {
+    if (!cart.length == 0) {
+      cart.forEach(async (item) => {
+        console.log(item);
+        let data = {
+          userID: item.UserID,
+          description: item.Description,
+          quantity: item.Quantity,
+          total: item.Total,
+        };
+        await fetch('http://localhost:5000/invoice/checkout', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+        await fetch(
+          `http://localhost:5000/cart/delete_cart_item/${item.CartItemID}`,
+          {
+            method: 'DELETE',
+          }
+        );
+        getItemsFromCart();
       });
-      await fetch(
-        `http://localhost:5000/cart/delete_cart_item/${item.CartItemID}`,
-        {
-          method: 'DELETE',
-        }
-      );
-      getItemsFromCart();
-    });
-    window.alert('Purchased successfully!');
-  } else {
-    window.alert('Cart is empty. Please add products from the shop.');
-  }}
+      grandTotal = 0;
+      grandTotalDiv.innerHTML = `Grand Total: $` + grandTotal;
+      window.alert('Purchased successfully!');
+    } else {
+      window.alert('Cart is empty. Please add products from the shop.');
+    }
+  }
 });
 
 async function getItemsFromCart() {
@@ -94,7 +97,9 @@ async function getItemsFromCart() {
       <div class="count-container">
           <input type="text" class="count" value="${item.Quantity}" readonly>
         </div>
-        <h6 id="unitPrice" class="price">$${parseFloat(item.Total).toFixed(2)}</h6>
+        <h6 id="unitPrice" class="price">$${parseFloat(item.Total).toFixed(
+          2
+        )}</h6>
       </div>
     </div>
       `;
@@ -104,18 +109,19 @@ async function getItemsFromCart() {
 
   let removeButton = document.querySelectorAll('.remove');
   removeButton.forEach((item) => {
-    
     item.addEventListener('click', async () => {
-      if (confirm ('Are you sure to delete this product? This action cannot be undone.') == true) {
-      await fetch(`http://localhost:5000/cart/delete_cart_item/${item.id}`, {
-        method: 'DELETE',
-      });
-      getItemsFromCart();
-    }
+      if (
+        confirm(
+          'Are you sure to delete this product? This action cannot be undone.'
+        ) == true
+      ) {
+        await fetch(`http://localhost:5000/cart/delete_cart_item/${item.id}`, {
+          method: 'DELETE',
+        });
+        getItemsFromCart();
+      }
     });
-  
   });
-
 }
 
 logoutButton.addEventListener('click', () => {
