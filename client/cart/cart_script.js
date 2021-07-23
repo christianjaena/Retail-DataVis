@@ -14,6 +14,7 @@ closeBtn.addEventListener('click', () => {
 
 let cart = [];
 checkoutButton.addEventListener('click', () => {
+
   if (cart.length !== 0) {
     if (confirm('Proceed to checkout? This action cannot be undone.') == true) {
       cart.forEach(async (item) => {
@@ -45,7 +46,7 @@ checkoutButton.addEventListener('click', () => {
       cart = [];
     }
   } else {
-    window.alert('Nothing to checkout.');
+    window.alert('Cart is empty. Please add products from the shop.');
   }
 });
 
@@ -81,8 +82,8 @@ async function getItemsFromCart() {
           <input type="text" class="count" value="${item.Quantity}" readonly>
         </div>
         <h6 id="unitPrice" class="price">$${parseFloat(item.Total).toFixed(
-          2
-        )}</h6>
+        2
+      )}</h6>
       </div>
     </div>
       `;
