@@ -69,7 +69,40 @@ function checkUser() {
   }
 }
 
+async function getItemPrices() {
+  const response = await fetch('http://localhost:5000/retail/item_prices');
+  const json = await response.json();
+  let ctx = document.getElementById('itemPrices').getContext('2d');
+  const labels = json.map((item) => item.Description);
+  const data = {
+    labels: labels,
+    datasets: [
+      {
+        type: 'bar',
+        label: 'Top 50 Most Expensive Items',
+        data: json.map((item) => item.UnitPrice),
+        backgroundColor: 'rgb(255, 99, 132)',
+        borderColor: 'rgb(255, 99, 132)',
+      },
+    ],
+  };
+  const config = {
+    data: data,
+    options: {
+      indexAxis: 'y',
+      elements: {
+        bar: {
+          borderWidth: 2,
+        },
+      },
+      responsive: true,
+    },
+  };
+  new Chart(ctx, config);
+}
+
 async function renderDropdown() {
+  await getItemPrices();
   await getItemDemand();
   await itemDemandGraph();
   lowerSubcontainer.innerHTML = `

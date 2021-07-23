@@ -206,6 +206,7 @@ body {
   margin-left: 35px;
 }
 
+
 .user-container{
   display: flex;
   flex-direction: column;
@@ -213,12 +214,12 @@ body {
   align-content: space-around;
   height: 600px;
   width: 550px;
-  background-color: #513E5C;
+  background-color: #513e5c;
   border-radius: 18px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
-.user-img{
+.user-img {
   margin-top: 20px;
   width: 170px;
   height: 170px;
@@ -227,13 +228,13 @@ body {
   border-radius: 12px;
 }
 
-.user-img i{
+.user-img i {
   font-size: 100px;
   line-height: 180px;
-  color: #513E5C;
+  color: #513e5c;
 }
 
-.user-container .user{
+.user-container .user {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -245,7 +246,7 @@ body {
   height: 50%;
 }
 
-.user-text{
+.user-text {
   display: flex;
   flex-direction: column;
   color: #c7abc7;
@@ -261,6 +262,7 @@ body {
   position:static;
   top:50px;
   left: 400px;
+
 }
 
 .profile-container {

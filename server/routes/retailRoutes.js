@@ -9,6 +9,7 @@ const {
   get_weekly_sales,
   get_yearly_sales,
   get_monthly_in_demand_items,
+  get_item_prices
 } = require('../controllers/retailControllers');
 
 route.get('/', get_retailData);
@@ -19,5 +20,6 @@ route.get('/weekly_sales', get_weekly_sales);
 route.get('/monthly_sales', get_monthly_sales);
 route.get('/yearly_sales', get_yearly_sales);
 route.get('/monthly_demand', get_monthly_in_demand_items)
+route.get('/item_prices', get_item_prices)
 
 module.exports = route;
