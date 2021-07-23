@@ -96,7 +96,7 @@ const get_yearly_sales = async (req, res) => {
 const get_monthly_in_demand_items = async (req, res) => {
   try {
     const monthly_in_demand_items = await postgres.query(
-      'SELECT * FROM (SELECT "Description", DATE_TRUNC(\'month\', "InvoiceDate") AS "Month", "Quantity", ROW_NUMBER() OVER (PARTITION BY DATE_TRUNC(\'month\',"InvoiceDate") ORDER BY "Quantity" DESC) AS "MonthlyRank" FROM "RetailData" GROUP BY "Description", "Month", "Quantity") "Ranks" WHERE "MonthlyRank" <= 5;'
+      'SELECT * FROM (SELECT "Description", DATE_TRUNC(\'month\', "InvoiceDate") AS "Month", "Quantity", ROW_NUMBER() OVER (PARTITION BY DATE_TRUNC(\'month\',"InvoiceDate") ORDER BY "Quantity" DESC) AS "MonthlyRank" FROM "RetailData" GROUP BY "Description", "Month", "Quantity") "Ranks" WHERE "MonthlyRank" <= 10;'
     );
     res.status(200).json(monthly_in_demand_items.rows);
   } catch (err) {
