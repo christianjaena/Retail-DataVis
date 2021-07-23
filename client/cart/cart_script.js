@@ -14,8 +14,8 @@ closeBtn.addEventListener('click', () => {
 
 let cart = [];
 checkoutButton.addEventListener('click', () => {
-  if (confirm('Proceed to checkout? This action cannot be undone.') == true) {
-    if (!cart.length == 0) {
+  if (cart.length !== 0) {
+    if (confirm('Proceed to checkout? This action cannot be undone.') == true) {
       cart.forEach(async (item) => {
         console.log(item);
         let data = {
@@ -42,9 +42,10 @@ checkoutButton.addEventListener('click', () => {
       grandTotal = 0;
       grandTotalDiv.innerHTML = `Grand Total: $` + grandTotal;
       window.alert('Purchased successfully!');
-    } else {
-      window.alert('Cart is empty. Please add products from the shop.');
+      cart = [];
     }
+  } else {
+    window.alert('Nothing to checkout.');
   }
 });
 
@@ -60,31 +61,13 @@ async function getItemsFromCart() {
   let json = await response.json();
   if (json.length === 0) {
     cartItems.innerHTML = '<h1>No items in cart yet.</h1>';
+    grandTotalDiv.innerHTML = `Grand Total: $` + grandTotal;
   } else {
     cart = json;
     cartItems.innerHTML = '';
 
     json.forEach((item) => {
       grandTotal += Number(parseFloat(item.Total));
-      /*
-      cartItems.innerHTML +=
-        ` <div id="${item.CartItemID}" class="square">
-        <div class="image-container">
-          <p id="description">${item.Description.toLowerCase()}</p>
-        </div>
-        <div class="amount-container">
-            <div class="count-container">
-              <input type="text" class="count" value="${item.Quantity}" readonly>
-            </div>
-        </div>
-        <div class="price-container">
-          <div class="price-tag"> 
-              <p id="unitPrice">$${parseFloat(item.Total).toFixed(2)}</p>
-          </div>
-          <button id=${item.CartItemID}  class="price remove">Remove</button>
-        </div>
-      </div>`;
-      */
       cartItems.innerHTML += `
       <div class="square">
       <div id=${item.CartItemID} class="delete-icon remove">
