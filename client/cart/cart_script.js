@@ -14,8 +14,8 @@ closeBtn.addEventListener('click', () => {
 
 let cart = [];
 checkoutButton.addEventListener('click', () => {
-  if (confirm('Proceed to checkout? This action cannot be undone.') == true) {
-    if (!cart.length == 0) {
+  if (!cart.length == 0) {
+    if (confirm('Proceed to checkout? This action cannot be undone.') == true) {
       cart.forEach(async (item) => {
         console.log(item);
         let data = {
@@ -42,9 +42,9 @@ checkoutButton.addEventListener('click', () => {
       grandTotal = 0;
       grandTotalDiv.innerHTML = `Grand Total: $` + grandTotal;
       window.alert('Purchased successfully!');
-    } else {
-      window.alert('Cart is empty. Please add products from the shop.');
     }
+  } else {
+    window.alert('Cart is empty. Please add products from the shop.');
   }
 });
 
@@ -98,8 +98,8 @@ async function getItemsFromCart() {
           <input type="text" class="count" value="${item.Quantity}" readonly>
         </div>
         <h6 id="unitPrice" class="price">$${parseFloat(item.Total).toFixed(
-          2
-        )}</h6>
+        2
+      )}</h6>
       </div>
     </div>
       `;
