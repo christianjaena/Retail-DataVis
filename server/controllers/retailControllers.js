@@ -121,6 +121,17 @@ const get_item_prices = async (req, res) => {
   }
 };
 
+const get_stocks = async (req, res) => {
+  try {
+    const stocks = await postgres.query(
+      'SELECT COUNT("StockCode") AS "StockCount" FROM "RetailData"'
+    )
+    res.status(200).json(stocks.rows[0])
+  } catch(err) {
+    res.status(400).json(err.message)
+    console.log(err.message)
+  }
+}
 module.exports = {
   get_retailData,
   get_items,
@@ -131,4 +142,6 @@ module.exports = {
   get_yearly_sales,
   get_monthly_in_demand_items,
   get_item_prices,
+  get_stocks
 };
+

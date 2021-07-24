@@ -29,4 +29,15 @@ const get_purchases = async (req, res) => {
   }
 };
 
-module.exports = { checkout_items, get_purchases };
+const get_invoices = async (req, res) => {
+  try {
+    const invoices = await postgres.query(
+      'SELECT COUNT("InvoiceNo") AS "InvoiceCount" FROM "RetailData"'
+    );
+    res.status(200).json(invoices.rows[0]);
+  } catch (err) {
+    res.status(400).json(err.message);
+    console.log(err.message);
+  }
+};
+module.exports = { checkout_items, get_purchases, get_invoices };

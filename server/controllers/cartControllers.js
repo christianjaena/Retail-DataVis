@@ -42,4 +42,21 @@ const delete_cart_item = async (req, res) => {
   }
 };
 
-module.exports = { add_to_cart, cart_items, delete_cart_item };
+const get_in_item_cart = async (req, res) => {
+  try {
+    const inItemCart = await postgres.query(
+      'SELECT COUNT("CartItemID") AS "CartItemNo" FROM "Cart"'
+    );
+    res.status(200).json(inItemCart.rows[0]);
+  } catch (err) {
+    res.status(400).json(err.message);
+    console.log(err.message);
+  }
+};
+
+module.exports = {
+  add_to_cart,
+  cart_items,
+  delete_cart_item,
+  get_in_item_cart,
+};
