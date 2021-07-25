@@ -72,7 +72,7 @@ async function getItemsFromCart() {
   });
   let json = await response.json();
   if (json.length === 0) {
-    cartItems.innerHTML = '<h1>No items in cart yet.</h1>';
+    cartItems.innerHTML = '<h1 id="null_item">No items in cart yet.</h1>';
     grandTotalDiv.innerHTML = `Grand Total: $` + grandTotal.toFixed(2);
   } else {
     cart = json;

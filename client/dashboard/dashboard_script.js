@@ -49,7 +49,14 @@ async function getData() {
           cart.innerHTML = item.CartItemNo;
           break;
         case 'InvoiceCount':
-          invoices.innerHTML = item.InvoiceCount;
+          (async () => {
+            let response = await fetch(
+              'http://localhost:5000/invoice/new_invoice'
+            );
+            let json = await response.json();
+            invoices.innerHTML =
+              parseInt(item.InvoiceCount) + parseInt(json.count);
+          })();
           break;
         case 'StockCount':
           items.innerHTML = item.StockCount;
@@ -58,8 +65,6 @@ async function getData() {
     })
   );
 }
-
-async function loadData() {}
 
 async function checkUser() {
   if (
@@ -72,7 +77,6 @@ async function checkUser() {
     window.history.back();
   } else {
     await getData();
-    await loadData();
     await getUserSummary();
     await getDayInvoice();
   }
@@ -122,7 +126,6 @@ async function getDayInvoice() {
   const total = await fetch('http://localhost:5000/invoice/day_total');
   const json = await response.json();
   const totalJson = await total.json();
-  console.log(totalJson);
   if (!totalJson.sum) {
     totalDiv.innerHTML += '0.00';
   } else {

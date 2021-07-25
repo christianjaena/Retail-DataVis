@@ -408,3 +408,7 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+.bx {
+  margin: 8px 5px 5px 5px;
+}

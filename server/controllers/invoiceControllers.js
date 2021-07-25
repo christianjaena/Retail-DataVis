@@ -64,10 +64,21 @@ const get_day_total = async (req, res) => {
     console.log(err.message);
   }
 };
+
+const get_new_invoice = async (req, res) => {
+  try {
+    const invoices = await postgres.query('SELECT COUNT(*) FROM "Invoices"');
+    res.status(200).json(invoices.rows[0]);
+  } catch (err) {
+    res.status(400).json(err.message);
+    console.log(err.message);
+  }
+};
 module.exports = {
   checkout_items,
   get_purchases,
   get_invoices,
   get_day_invoice,
   get_day_total,
+  get_new_invoice,
 };
