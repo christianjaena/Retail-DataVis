@@ -9,7 +9,6 @@ let userSummary = document.getElementById('userSummary');
 let dayInvoice = document.getElementById('dayInvoice');
 let totalDiv = document.getElementById('total');
 
-
 logoutButton.addEventListener('click', () => {
   window.location.href = 'http://localhost:5000/';
   localStorage.removeItem('user');
@@ -112,6 +111,7 @@ async function getUserSummary() {
         },
       },
     },
+    responsive: true,
   };
   new Chart(ctx, config);
 }
@@ -122,7 +122,12 @@ async function getDayInvoice() {
   const total = await fetch('http://localhost:5000/invoice/day_total');
   const json = await response.json();
   const totalJson = await total.json();
-  totalDiv.innerHTML += totalJson.sum;
+  console.log(totalJson);
+  if (!totalJson.sum) {
+    totalDiv.innerHTML += '0.00';
+  } else {
+    totalDiv.innerHTML += totalJson.sum;
+  }
   roles = json;
   const current_date = new Date();
   let ctx = dayInvoice.getContext('2d');
@@ -159,6 +164,7 @@ async function getDayInvoice() {
         },
       },
     },
+    responsive: true,
   };
   new Chart(ctx, config);
 }
