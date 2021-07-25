@@ -6,6 +6,8 @@ let items = document.getElementById('items');
 let invoices = document.getElementById('invoices');
 let cart = document.getElementById('cart');
 let userSummary = document.getElementById('userSummary');
+let dayInvoice = document.getElementById('dayInvoice');
+let totalDiv = document.getElementById('total');
 
 logoutButton.addEventListener('click', () => {
   window.location.href = 'http://localhost:5000/';
@@ -72,6 +74,7 @@ async function checkUser() {
     await getData();
     await loadData();
     await getUserSummary();
+    await getDayInvoice();
   }
 }
 
@@ -101,6 +104,53 @@ async function getUserSummary() {
   const config = {
     type: 'doughnut',
     data: data,
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  };
+  new Chart(ctx, config);
+}
+
+async function getDayInvoice() {
+  let roles = [];
+  const response = await fetch('http://localhost:5000/invoice/day_invoice');
+  const total = await fetch('http://localhost:5000/invoice/day_total');
+  const json = await response.json();
+  const totalJson = await total.json();
+  totalDiv.innerHTML += totalJson.sum;
+  roles = json;
+  const current_date = new Date();
+  let ctx = dayInvoice.getContext('2d');
+  const labels = roles.map(
+    (item) =>
+      `${item.InvoiceDate.split(' ')[1]} ${item.InvoiceDate.split(' ')[2]}`
+  );
+  const data = {
+    labels: labels,
+    datasets: [
+      {
+        type: 'bar',
+        label: 'Bar',
+        data: roles.map((item) => item.Total),
+        backgroundColor: ['rgb(75, 192, 192)'],
+        hoverOffset: 4,
+      },
+      {
+        type: 'line',
+        label: 'Line',
+        data: roles.map((item) => item.Total),
+        backgroundColor: ['rgb(255, 99, 132)'],
+        hoverOffset: 4,
+      },
+    ],
+  };
+  const config = {
+    data: data,
+    label: current_date,
     options: {
       scales: {
         y: {

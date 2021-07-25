@@ -14,7 +14,6 @@ closeBtn.addEventListener('click', () => {
 
 let cart = [];
 checkoutButton.addEventListener('click', () => {
-
   if (cart.length !== 0) {
     if (confirm('Proceed to checkout? This action cannot be undone.') == true) {
       cart.forEach(async (item) => {
@@ -41,7 +40,7 @@ checkoutButton.addEventListener('click', () => {
         getItemsFromCart();
       });
       grandTotal = 0;
-      grandTotalDiv.innerHTML = `Grand Total: $` + grandTotal;
+      grandTotalDiv.innerHTML = `Grand Total: $` + grandTotal.toFixed(2);
       window.alert('Purchased successfully!');
       cart = [];
     }
@@ -62,7 +61,7 @@ async function getItemsFromCart() {
   let json = await response.json();
   if (json.length === 0) {
     cartItems.innerHTML = '<h1>No items in cart yet.</h1>';
-    grandTotalDiv.innerHTML = `Grand Total: $` + grandTotal;
+    grandTotalDiv.innerHTML = `Grand Total: $` + grandTotal.toFixed(2);
   } else {
     cart = json;
     cartItems.innerHTML = '';
@@ -82,13 +81,13 @@ async function getItemsFromCart() {
           <input type="text" class="count" value="${item.Quantity}" readonly>
         </div>
         <h6 id="unitPrice" class="price">$${parseFloat(item.Total).toFixed(
-        2
-      )}</h6>
+          2
+        )}</h6>
       </div>
     </div>
       `;
     });
-    grandTotalDiv.innerHTML = `Grand Total: $` + grandTotal;
+    grandTotalDiv.innerHTML = `Grand Total: $` + grandTotal.toFixed(2);
   }
 
   let removeButton = document.querySelectorAll('.remove');
