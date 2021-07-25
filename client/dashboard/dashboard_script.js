@@ -5,6 +5,7 @@ let users = document.getElementById('users');
 let items = document.getElementById('items');
 let invoices = document.getElementById('invoices');
 let cart = document.getElementById('cart');
+let userSummary = document.getElementById('userSummary');
 
 logoutButton.addEventListener('click', () => {
   window.location.href = 'http://localhost:5000/';
@@ -70,5 +71,43 @@ async function checkUser() {
   } else {
     await getData();
     await loadData();
+    await getUserSummary();
   }
+}
+
+async function getUserSummary() {
+  let roles = [];
+  const response = await fetch('http://localhost:5000/user/roles');
+  const json = await response.json();
+  roles = json;
+  let ctx = userSummary.getContext('2d');
+  const labels = roles.map((item) => item.Role);
+  const data = {
+    labels: labels,
+    datasets: [
+      {
+        label: labels,
+        data: roles.map((item) => item.count),
+        backgroundColor: [
+          'rgb(255, 99, 132)',
+          'rgb(75, 192, 192)',
+          'rgb(255, 205, 86)',
+          'rgb(54, 162, 235)',
+        ],
+        hoverOffset: 4,
+      },
+    ],
+  };
+  const config = {
+    type: 'doughnut',
+    data: data,
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  };
+  new Chart(ctx, config);
 }

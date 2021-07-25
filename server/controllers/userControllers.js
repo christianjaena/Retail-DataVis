@@ -66,4 +66,22 @@ const get_users = async (req, res) => {
   }
 };
 
-module.exports = { register_user, login_user, get_user_details, get_users };
+const get_roles = async (req, res) => {
+  try {
+    const getRoles = await postgres.query(
+      'SELECT "Role", COUNT(*) FROM "Users" GROUP BY "Role" ORDER BY COUNT(*)'
+    );
+    res.status(200).json(getRoles.rows);
+  } catch (err) {
+    res.status(400).json(err.message);
+    console.log(err.message);
+  }
+};
+
+module.exports = {
+  register_user,
+  login_user,
+  get_user_details,
+  get_users,
+  get_roles,
+};
