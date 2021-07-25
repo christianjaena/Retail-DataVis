@@ -12,12 +12,24 @@ closeBtn.addEventListener('click', () => {
   menuBtnChange(); //calling the function(optional)
 });
 
+async function getCartItems() {
+  let response = await fetch('http://localhost:5000/cart/cart_items', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ userID: userDetails.UserID }),
+  });
+  let json = await response.json();
+  return json;
+}
+
 let cart = [];
-checkoutButton.addEventListener('click', () => {
-  if (cart.length !== 0) {
+checkoutButton.addEventListener('click', async () => {
+  const cartItems = await getCartItems();
+  if (cartItems.length > 0) {
     if (confirm('Proceed to checkout? This action cannot be undone.') == true) {
       cart.forEach(async (item) => {
-        console.log(item);
         let data = {
           userID: item.UserID,
           description: item.Description,
@@ -96,12 +108,12 @@ async function getItemsFromCart() {
       if (
         confirm(
           'Are you sure to delete this product? This action cannot be undone.'
-        ) == true
+        )
       ) {
         await fetch(`http://localhost:5000/cart/delete_cart_item/${item.id}`, {
           method: 'DELETE',
         });
-        getItemsFromCart();
+        await getItemsFromCart();
       }
     });
   });
