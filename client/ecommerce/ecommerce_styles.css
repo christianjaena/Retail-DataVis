@@ -409,6 +409,6 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-.bx {
-  margin: 8px 5px 5px 5px;
+.control {
+  margin: 10px 5px 5px 5px;
 }
