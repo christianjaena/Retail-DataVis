@@ -9,6 +9,7 @@ let userSummary = document.getElementById('userSummary');
 let dayInvoice = document.getElementById('dayInvoice');
 let totalDiv = document.getElementById('total');
 
+
 logoutButton.addEventListener('click', () => {
   window.location.href = 'http://localhost:5000/';
   localStorage.removeItem('user');
